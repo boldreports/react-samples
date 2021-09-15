@@ -10,25 +10,7 @@ class LoadLargeData extends Component {
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
                     reportPath={'~/Resources/demos/Report/load-large-data.rdlc'}
-                    toolbarSettings={{
-                        showToolbar: true,
-                        items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Export & ~ej.ReportViewer.ToolbarItems.Print & ~ej.ReportViewer.ToolbarItems.ExportSetup,
-                        customGroups: [{
-                            items: [{
-                                type: 'Default',
-                                cssClass: "e-icon e-edit e-reportviewer-icon ej-webicon CustomGroup",
-                                id: "edit-report",
-                                // Need to add the proper header and content once, the tool tip issue resolved.
-                                tooltip: {
-                                    header: 'Edit Report',
-                                    content: 'Edit this report in designer'
-                                }
-                            }],
-                            // Need to remove the css (e-reportviewer-toolbarcontainer ul.e-ul:nth-child(4)) once the group index issue resolved
-                            groupIndex: 3,
-                            cssClass: "e-show"
-                        }]
-                    }}
+                    toolbarSettings={Globals.TOOLBAR_OPTIONS}
                     toolBarItemClick={Globals.EDIT_REPORT}>
                 </BoldReportViewerComponent>)
         }
