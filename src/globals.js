@@ -59,8 +59,8 @@ function EDIT_REPORT(args) {
     }
 }
 
-var ServiceURL = '/demos/services/api/ReportViewerWebApi';
-var DesignerServiceURL = '/demos/services/api/ReportDesignerWebApi';
+var ServiceURL = 'https://demos.boldreports.com/services/api/ReportViewerWebApi';
+var DesignerServiceURL = 'https://demos.boldreports.com/services/api/ReportDesignerWebApi';
 
 const SampleComponents = {
     ProductLineSales: ProductLineSales,
