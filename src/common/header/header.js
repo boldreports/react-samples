@@ -29,9 +29,42 @@ class Header extends Component {
             element.className = !element.className.includes("ej-toc-slide-left") ? element.className + " ej-toc-slide-left" : element.className.replace("ej-toc-slide-left", "");
         }
     }
-    changePlatform(platformName) {
-        var prefixPlatformURL = window.location.pathname.includes('demos') ? '/demos/' : '/';
-        window.location.href = prefixPlatformURL + platformName;
+    getRouterPath(curPlatform, targetplatform, sampleName) {
+        curPlatform = curPlatform.toLowerCase();
+        targetplatform = targetplatform.toLowerCase();
+        const samePath = (curPlatform.indexOf('asp') === -1 && targetplatform.indexOf('asp') === -1) ||
+            (curPlatform.indexOf('asp') >= 0 && targetplatform.indexOf('asp') >= 0);
+        if (samePath) {
+            return sampleName;
+        } else {
+            if (curPlatform.indexOf('asp') !== -1) {
+                return sampleName.split(/(?=[A-Z])/).map((name) => {
+                    return name.toLowerCase();
+                }).join('-');
+
+            } else {
+                return sampleName.split(/-/).map((name) => {
+                    return name.charAt(0).toUpperCase() + name.slice(1);
+                }).join('');
+
+            }
+        }
+    }
+    platformSwitcher(e) {
+        if (e.target.tagName == 'A') {
+            let targetPlatform = e.target.innerText.trim();
+            let routerData = getRouterData(window.location.hash.replace('#/', ''));
+            let platformBasePath;
+            let platformSamplePath;
+            const sampleName = routerData.reportRouterPath ? routerData.reportRouterPath : routerData.reportBasePath;
+            if (routerData.reportRouterPath) {
+                platformBasePath = this.getRouterPath(data.platform, targetPlatform, routerData.reportBasePath);
+            }
+            platformSamplePath = this.getRouterPath(data.platform, targetPlatform, sampleName);
+            const reportPath = routerData.reportRouterPath ? (platformBasePath + '/' + platformSamplePath) : platformSamplePath;
+            let url = location.origin.indexOf('demos.boldreports.com') !== -1 ? '/' : '/demos/';
+            window.open(location.origin + url + data.otherPlatforms[targetPlatform] + reportPath, '_self');
+        }
     }
     componentDidMount() {
         document.addEventListener("mousedown", this.handleClickOutside);
@@ -64,7 +97,7 @@ class Header extends Component {
                                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onClick={this.handleButtonClick}>
                                 </button>
-                                {this.state.open && (<div className={`dropdown-menu show`} aria-labelledby="dropdownMenuButton">{Object.keys(otherPlatforms).map((name, index) => <a className={`dropdown-item ${name.includes('React') ? 'active' : ''}`} key={index} onClick={this.changePlatform.bind(this, otherPlatforms[name])}>{name}</a>)}</div>)}
+                                {this.state.open && (<div className={`dropdown-menu show`} aria-labelledby="dropdownMenuButton">{Object.keys(otherPlatforms).map((name, index) => <a className={`dropdown-item ${name.includes('React') ? 'active' : ''}`} key={index} onClick={this.platformSwitcher.bind(this)}>{name}</a>)}</div>)}
                             </div> :
 
                             ''}
@@ -87,3 +120,11 @@ class Header extends Component {
 }
 
 export { Header };
+
+function getRouterData(path, basePathIndex = 0, routerPathIndex = 1) {
+    const modifiedUrl = path.indexOf('?') !== -1 ? path.substring(0, path.indexOf('?')) : path;
+    const spilttedUrl = modifiedUrl.split('/');
+    const reportBasePath = spilttedUrl[basePathIndex];
+    const reportRouterPath = spilttedUrl[routerPathIndex] ? spilttedUrl[routerPathIndex] : '';
+    return { reportBasePath: reportBasePath, reportRouterPath: reportRouterPath };
+}
