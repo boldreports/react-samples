@@ -56,7 +56,7 @@
         "index": 3
       },
       "metaData": {
-        "description": "Mail merge shows to envelope the employee details using SRSS List report item in React Bold Report Viewer."
+        "description": "Mail merge shows to envelope the employee details using SSRS List report item in React Bold Report Viewer."
       }
     },
     {
@@ -316,7 +316,6 @@
         "isLandscape": true,
         "index": 8
       },
-      "status": "New",
       "metaData": {
         "description": "This demos allows you to choose the chart series dynamically in React Bold Report Viewer."
       }

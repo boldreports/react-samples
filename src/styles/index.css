@@ -2,6 +2,8 @@
 @import './../common/sidebar/sidebar.css';
 @import './../common/main-content/main-content.css';
 @import './../../node_modules/prismjs/themes/prism.css';
+@import './../../node_modules/codemirror/lib/codemirror.css';
+@import './../../node_modules/codemirror/addon/hint/show-hint.css';
 
 /* loader */
 .splash {

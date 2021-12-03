@@ -6,13 +6,13 @@ const samples = data.samples;
 class Sidebar extends Component {
     onHomeClick() {
         var homePageUrl = window.location.origin.indexOf('demos.boldreports.com') !== -1 ? '/home/' : '/';
-        window.location.href = window.location.origin + homePageUrl + '';
+        window.location.href = window.location.origin + homePageUrl + 'react.html';
     }
     tocSelection(routerPath) {
         var currentLocation = document.location.href;
         return currentLocation.includes(routerPath) ? 'toc-selected' : '';
     }
-    componentDidMount() {
+    componentDidUpdate() {
         document.getElementsByClassName('toc-selected')[0].focus();
     }
     render() {

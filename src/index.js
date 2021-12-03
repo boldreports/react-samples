@@ -25,6 +25,18 @@ let qrBarcode = 'EJQRBarcode';
 window[barcode] = EJBarcode;
 window[qrBarcode] = EJQRBarcode;
 
+//code-mirror
+import 'codemirror/lib/codemirror';
+import 'codemirror/addon/hint/show-hint';
+import 'codemirror/addon/hint/sql-hint';
+import 'codemirror/mode/sql/sql';
+import 'codemirror/mode/vb/vb';
+import './../node_modules/codemirror/lib/codemirror.css';
+import './../node_modules/codemirror/addon/hint/show-hint.css';
+
+import * as CodeMirror from 'codemirror';
+window['CodeMirror'] = CodeMirror;
+
 ReactDOM.render(
   <HashRouter>
     <App />

@@ -48,6 +48,9 @@ class App extends React.Component {
           </Route>
           <Route path={"/report-viewer/:id"} render={routerProps => this.renderViewer(routerProps)} exact></Route>
           <Route path={"/report-viewer/:id/preview"} render={routerProps => this.renderViewer(routerProps)} exact></Route>
+          <Route path={'*'}>
+            <Redirect to={"/report-viewer/product-line-sales"}></Redirect>
+          </Route>
         </Switch>
       </div>
     )
