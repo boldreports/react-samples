@@ -23,7 +23,7 @@ class SalesByYear extends Component {
                         The sales by year RDLC report represents the sales of North America countries in each year using <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
                             target="_blank">Tablix</a> and <a
-                                href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/" target="_blank">Chart</a>
+                                href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/" target="_blank">Chart </a>
                         report items.
                     </p>
                     <ul>
@@ -37,7 +37,7 @@ class SalesByYear extends Component {
                     </ul>
                     <p>
                         More information about RDLC report can be found in this <a
-                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank">documentation</a>
+                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank">documentation </a>
                         section.
                     </p>
                 </div>

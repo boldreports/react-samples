@@ -30,7 +30,7 @@ class ConditionalRowFormatting extends Component {
                         <li><b>Conditional IIF Statement</b> is used to build <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/compose-report/properties-panel/#set-expression"
                             target="_blank">expression</a> for background color, thereby it highlights the rows based on the
-                            <code>Country Name</code> field.</li>
+                            <code> Country Name</code> field.</li>
                     </ul>
                     <p>
                         Conditional row formatting report designing steps can be found in this <a

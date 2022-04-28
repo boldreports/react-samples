@@ -22,7 +22,7 @@ class SalesReport extends Component {
                     </p>
                     <ul>
                         <li>The table is displayed with a total row, and the sum of sales is calculated by aggregation of
-                            <code>OrderQty</code> and <code>UnitPrice</code> data fields using the <a
+                            <code> OrderQty</code> and <code>UnitPrice</code> data fields using the <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/compose-report/properties-panel/#set-expression"
                                 target="_blank">Expression</a> support.</li>
                         <li>The <code>Item Total</code> data text box is formatted in <b>Currency </b> <a

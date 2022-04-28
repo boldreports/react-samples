@@ -22,7 +22,7 @@ class ProductLineSales extends Component {
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
                             target="_blank">Tablix</a> and <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/"
-                                target="_blank">Chart</a>
+                                target="_blank">Chart </a>
                         report items.
                     </p>
                     <ul>

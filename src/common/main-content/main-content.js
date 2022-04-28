@@ -12,7 +12,7 @@ class MainContentSample extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDemoActive: true, isSourceActive: false, isDescActive: false, previousSampleName: String, nextSampleName: String, sourceTabContent: []
+      isDemoActive: true, isSourceActive: false, isDescActive: false
     }
   }
   DemoToggle = () => {
@@ -45,14 +45,6 @@ class MainContentSample extends Component {
   newWindow = () => {
     window.open(window.location.href + `/preview`);
   }
-  sourceTab() {
-    this.getSource();
-    var sourceData = this.state.sourceTabContent.data.toString().match(/(class.*{([^]*)BoldReportViewerComponent>)/g)[0].replace(/if.*[^{]/g, '').replace(/(render.*([\n\D]*)return \()/, 'render() {\n\t return (') + ")\n\t}\n}";
-    sourceData = Prism.highlight(sourceData, Prism.languages.js)
-    var sourceTabchildTabContainer = document.getElementById('childTabContainer');
-    if (sourceTabchildTabContainer)
-      sourceTabchildTabContainer.getElementsByClassName('js-content')[0].innerHTML = sourceData;
-  }
   setReportsHeight() {
     var style = document.getElementById('reports-style');
     if (!style) {
@@ -71,6 +63,7 @@ class MainContentSample extends Component {
     document.getElementById('report-viewer').style.width = `100%`;
   }
   componentDidUpdate() {
+    document.getElementById('container').style.height = '100%';
     this.setReportsHeight();
     window.addEventListener('resize', () => {
       this.onResize();
@@ -106,9 +99,13 @@ class MainContentSample extends Component {
     this.setReportsHeight();
   }
   getSource() {
-    //Get the source Tab content value and set into sourceTabContent State.
-    var self = this;
-    axios.get(`report-viewer/${this.props.report.routerPath}.js`).then(data => self.setState({ sourceTabContent: data }));
+    axios.get(`report-viewer/${this.props.report.routerPath}.js`).then(response => {
+      var sourceData = response.data.toString().match(/(class.*{([^]*)BoldReportViewerComponent>)/g)[0].replace(/if.*[^{]/g, '').replace(/(render.*([\n\D]*)return \()/, 'render() {\n\t return (') + ")\n\t}\n}";
+      sourceData = Prism.highlight(sourceData, Prism.languages.js)
+      var sourceTabchildTabContainer = document.getElementById('childTabContainer');
+      if (sourceTabchildTabContainer)
+        sourceTabchildTabContainer.getElementsByClassName('js-content')[0].innerHTML = sourceData;
+    })
   }
   dontGoToLink(e) {
     e.preventDefault();
@@ -133,7 +130,7 @@ class MainContentSample extends Component {
                         <span className="ej-sb-icons ej-demo-icon"></span><span>DEMO</span>
                       </Link >
                     </li>
-                    <li className="ej-nav-item source-tab" onClick={() => { this.SourceActive(); this.sourceTab(); }} >
+                    <li className="ej-nav-item source-tab" onClick={() => { this.SourceActive(); this.getSource(); }} >
                       <Link to={'#source'} data-toggle="tab" role="tab" aria-selected="false" onClick={this.dontGoToLink} className={`${this.state.isSourceActive ? 'active' : ''}`}>
                         <span className="ej-sb-icons ej-source-icon"></span><span>SOURCE</span>
                       </Link>
@@ -194,6 +191,33 @@ class MainContentPreview extends Component {
   ViewComponent = (componentName) => {
     var SampleComponent = Globals.SampleComponents[componentName];
     return <SampleComponent />
+  }
+  componentDidUpdate() {
+    window.addEventListener('resize', () => {
+      this.setReportsHeight();
+    });
+  }
+  setReportsHeight() {
+    if (location.href.includes('/preview') && location.href.includes('/external-parameter-report')) {
+      var style = document.getElementById('reports-style');
+      if (!style) {
+        style = document.createElement('style');
+        style.id = 'reports-style';
+        document.body.appendChild(style);
+      }
+      style.textContent = `ej-sample{
+              display:block;
+              overflow: hidden;
+              height: ${window.innerHeight -
+        (document.getElementById('previewContainer').getBoundingClientRect().top - document.body.getBoundingClientRect().top)}px
+            }`;
+      document.getElementById('report-viewer').style.height = `${window.innerHeight -
+        (document.getElementById('previewContainer').getBoundingClientRect().top - document.body.getBoundingClientRect().top)}px`;
+      document.getElementById('report-viewer').style.width = `100%`;
+    }
+  }
+  componentDidMount() {
+    this.setReportsHeight();
   }
   render() {
     const componentName = this.props.report.sampleName.replace(/\s/g, '');

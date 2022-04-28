@@ -26,7 +26,7 @@ class TicketsSalesAnalysis extends Component {
                             color for a table data region,
                             which improves the readability of data.</li>
                         <li>The <code>TopN</code> filter is applied to bar chart to display the
-                            <code>Top 5 Shows based on Tickets Sold</code>. More information on filtering data with chart data
+                            <code> Top 5 Shows based on Tickets Sold</code>. More information on filtering data with chart data
                             region can be found in this <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/add-filters-to-chart-data-region/"
                                 target="_blank">documentation</a> section.</li>
