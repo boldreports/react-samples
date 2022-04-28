@@ -21,7 +21,7 @@ class PatientExperienceAnalysis extends Component {
                         This report shows the Patient's satisfaction, average stay duration, count and average waiting time using <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
                             target="_blank">Tablix</a> and <a
-                                href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/" target="_blank">Chart</a>
+                                href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/" target="_blank">Chart </a>
                         report items.
                     </p>
                     <p>
