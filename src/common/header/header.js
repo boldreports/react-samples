@@ -32,7 +32,7 @@ class Header extends Component {
     getRouterPath(curPlatform, targetplatform, sampleName) {
         curPlatform = curPlatform.toLowerCase();
         targetplatform = targetplatform.toLowerCase();
-        const samePath = (curPlatform.indexOf('asp') === -1 && targetplatform.indexOf('asp') === -1) ||
+        const samePath = (curPlatform.indexOf('asp') === -1 && targetplatform.indexOf('asp') === -1 && targetplatform.indexOf('blazor') === -1) ||
             (curPlatform.indexOf('asp') >= 0 && targetplatform.indexOf('asp') >= 0);
         if (samePath) {
             return sampleName;
@@ -103,15 +103,8 @@ class Header extends Component {
                             ''}
                     </div>
                     <div className="ej-sb-right-side">
-                        <a href="https://help.boldreports.com/embedded-reporting/react-reporting/" title="Documentation" target="_blank" rel="noreferrer"><span
-                            className="ej-sb-header-icons sb-icon-documentation"></span></a>
-                        <a href="https://www.boldreports.com" title="Product Details" target="_blank" rel="noreferrer"><span
-                            className="ej-sb-header-icons sb-icon-product"></span></a>
-                        <a href="https://www.boldreports.com/embedded-reporting/pricing" title="Download Now" target="_blank" rel="noreferrer"><span
-                            className="ej-sb-header-icons sb-icon-download"></span></a>
-                        <div className="ej-sb-divider"></div>
-                        <a className="ej-sb-button" href="https://on-premise-demo.boldreports.com" title="Report Server" target="_blank" rel="noreferrer"
-                        >Explore Report Server</a>
+                        <a className="ej-sb-button nav-link bold-schedule-demo" href="https://www.boldreports.com/schedule-free-demo" target="_blank">Schedule Free Demo</a>
+                        <a className="ej-sb-button nav-link try-it-free" href="https://www.boldreports.com/pricing" target="_blank">Try it Free</a>
                     </div>
                 </div>
             </ej-header>

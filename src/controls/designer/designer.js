@@ -89,7 +89,7 @@ class Designer extends Component {
       });
     }
     if (reportName) {
-      designerInst.openReport(reportName);
+      designerInst.openReport(reportName.indexOf("external-parameter-report") !== -1 ? "product-line-sales.rdl" : reportName.indexOf("parameter-customization") !== -1 ? "product-line-sales.rdl" : reportName);
     }
   }
   onAjaxBeforeLoad = (args) => {

@@ -25,6 +25,11 @@ import GroupingAggregate from './controls/grouping-aggregate';
 import ProductDetails from './controls/product-details';
 import Paystub from './controls/paystub';
 import DynamicChartSeries from './controls/dynamic-chart-series';
+import DataBar from './controls/data-bar';
+import SparkLine from './controls/spark-line';
+import DynamicColumns from './controls/dynamic-columns';
+import ExternalParameterReport from './controls/external-parameter-report';
+import ParameterCustomization from './controls/parameter-customization';
 import rdlcData from './rdlcData'
 
 window.React = React;
@@ -52,15 +57,16 @@ var TOOLBAR_OPTIONS = {
 };
 function EDIT_REPORT(args) {
     if (args.value === "edit-report") {
-        var reportPath = args.model.reportPath.toString();
+        var reportPath = location.href.lastIndexOf('external-parameter-report') !== -1 ? 
+        "/external-parameter-report" : location.href.lastIndexOf('parameter-customization') !== -1 ? '/parameter-customization' : args.model.reportPath.toString();
         const ReportDesignerPath = reportPath.indexOf('.rdlc') !== -1 ? '#/report-designer/rdlc' : '#/report-designer';
         var editReportPath = ReportDesignerPath + "/?report-name=" + reportPath.substr(reportPath.lastIndexOf("/") + 1, reportPath.length - 1);
         window.open(editReportPath);
     }
 }
 
-var ServiceURL = 'https://demos.boldreports.com/services/api/ReportViewerWebApi';
-var DesignerServiceURL = 'https://demos.boldreports.com/services/api/ReportDesignerWebApi';
+var ServiceURL = '/demos/services/api/ReportViewerWebApi';
+var DesignerServiceURL = '/demos/services/api/ReportDesignerWebApi';
 
 const SampleComponents = {
     ProductLineSales: ProductLineSales,
@@ -85,7 +91,12 @@ const SampleComponents = {
     LoadLargeData: LoadLargeData,
     ConsolidatedBalanceSheet: ConsolidatedBalanceSheet,
     Paystub: Paystub,
-    DynamicChartSeries: DynamicChartSeries
+    DynamicChartSeries: DynamicChartSeries,
+    DataBar: DataBar,
+    SparkLine: SparkLine,
+    DynamicColumns: DynamicColumns,
+    ExternalParameterReport: ExternalParameterReport,
+    ParameterCustomization: ParameterCustomization
 }
 
 function onReportLoaded(args) {
