@@ -30,7 +30,7 @@ class MailMerge extends Component {
                     </ul>
                     <p>
                         You can print or export this report as PDF, Excel, Word, HTML, PowerPoint, or CSV format using the
-                        <code> Print </code> and <code> Export</code>
+                        <code> Print </code> and <code> Export </code>
                         options in Bold Report Viewer. The reports can be sent to the professional contacts in an organization in single
                         click.
                     </p>

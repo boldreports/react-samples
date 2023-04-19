@@ -30,7 +30,7 @@ class ProductCatalog extends Component {
                     </ul>
                     <p>
                         More information about RDLC report can be found in this <a
-                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank">documentation</a>
+                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank">documentation </a>
                         section.
                     </p>
                 </div>

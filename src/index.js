@@ -16,9 +16,9 @@ import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej
 import '@boldreports/react-reporting-components/Scripts/bold.reports.react.min';
 
 //barcode
-import './controls/extensions/report-item-extensions/barcode.css';
-import { EJBarcode } from './controls/extensions/report-item-extensions/barcode';
-import { EJQRBarcode } from './controls/extensions/report-item-extensions/qrbarcode';
+import './controls/extensions/report-item-extensions/barcode.reportitem.css';
+import { EJBarcode } from './controls/extensions/report-item-extensions/barcode.reportitem';
+import { EJQRBarcode } from './controls/extensions/report-item-extensions/qrbarcode.reportitem';
 
 let barcode = 'EJBarcode';
 let qrBarcode = 'EJQRBarcode';

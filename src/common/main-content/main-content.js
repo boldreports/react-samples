@@ -8,11 +8,12 @@ import { Globals } from '../../globals';
 import axios from 'axios';
 
 const samples = data.samples;
+const bannerData = data.banner;
 class MainContentSample extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDemoActive: true, isSourceActive: false, isDescActive: false, previousSampleName: String, nextSampleName: String, sourceTabContent: []
+      isDemoActive: true, isSourceActive: false, isDescActive: false
     }
   }
   DemoToggle = () => {
@@ -45,14 +46,6 @@ class MainContentSample extends Component {
   newWindow = () => {
     window.open(window.location.href + `/preview`);
   }
-  sourceTab() {
-    this.getSource();
-    var sourceData = this.state.sourceTabContent.data.toString().match(/(class.*{([^]*)BoldReportViewerComponent>)/g)[0].replace(/if.*[^{]/g, '').replace(/(render.*([\n\D]*)return \()/, 'render() {\n\t return (') + ")\n\t}\n}";
-    sourceData = Prism.highlight(sourceData, Prism.languages.js)
-    var sourceTabchildTabContainer = document.getElementById('childTabContainer');
-    if (sourceTabchildTabContainer)
-      sourceTabchildTabContainer.getElementsByClassName('js-content')[0].innerHTML = sourceData;
-  }
   setReportsHeight() {
     var style = document.getElementById('reports-style');
     if (!style) {
@@ -61,14 +54,25 @@ class MainContentSample extends Component {
       document.body.appendChild(style);
     }
     style.textContent = `ej-sample{
-            display:block;
+            display: flex;
             overflow: hidden;
-            height: ${window.innerHeight -
-      (document.getElementById('parentTabContent').getBoundingClientRect().top - document.body.getBoundingClientRect().top)}px
+            min-height: 600px
+          }
+          #report-viewer {
+            height: auto !important;
+            width: 100% !important;
+          }
+          #report-viewer_viewerContainer {
+            overflow-y: hidden;
+            min-height: 600px;
+            height: auto !important;
+          }
+          #report-viewer_viewerContainer .e-image, #report-viewer_loadingIndicator_WaitingPopup .e-text {
+            top: 230px !important;
+          }
+          #report-viewer_loadingIndicator_WaitingPopup {
+            min-height: 600px !important;
           }`;
-    document.getElementById('report-viewer').style.height = `${window.innerHeight -
-      (document.getElementById('parentTabContent').getBoundingClientRect().top - document.body.getBoundingClientRect().top)}px`;
-    document.getElementById('report-viewer').style.width = `100%`;
   }
   componentDidUpdate() {
     this.setReportsHeight();
@@ -83,11 +87,11 @@ class MainContentSample extends Component {
     if (window.matchMedia('(max-width:850px)').matches) {
       $('#parentTab li:first-child a').tab = 'show';
       sourceTab.classList.add('e-hidden');
-      descTab.classList.add('e-hidden');
+      // descTab.classList.add('e-hidden');
     } else {
       if (sourceTab.classList.contains('e-hidden')) {
         sourceTab.classList.remove('e-hidden');
-        descTab.classList.remove('e-hidden');
+        // descTab.classList.remove('e-hidden');
       }
     }
   }
@@ -106,9 +110,13 @@ class MainContentSample extends Component {
     this.setReportsHeight();
   }
   getSource() {
-    //Get the source Tab content value and set into sourceTabContent State.
-    var self = this;
-    axios.get(`report-viewer/${this.props.report.routerPath}.js`).then(data => self.setState({ sourceTabContent: data }));
+    axios.get(`report-viewer/${this.props.report.routerPath}.js`).then(response => {
+      var sourceData = response.data.toString().match(/(class.*{([^]*)BoldReportViewerComponent>)/g)[0].replace(/if.*[^{]/g, '').replace(/(render.*([\n\D]*)return \()/, 'render() {\n\t return (') + ")\n\t}\n}";
+      sourceData = Prism.highlight(sourceData, Prism.languages.js)
+      var sourceTabchildTabContainer = document.getElementById('childTabContainer');
+      if (sourceTabchildTabContainer)
+        sourceTabchildTabContainer.getElementsByClassName('js-content')[0].innerHTML = sourceData;
+    })
   }
   dontGoToLink(e) {
     e.preventDefault();
@@ -122,67 +130,115 @@ class MainContentSample extends Component {
         <div className={`ej-main-parent-content`}>
           <Sidebar onClick={this.DemoToggle.bind(this)} />
           <div className="ej-main-child-content">
-            <ej-maincontent>
-              <div className="ej-main-body-content">
-                <h1 className="ej-title">{this.props.report.sampleName}</h1>
-                <p className="ej-meta-description">{this.props.report.metaData.description}</p>
-                <div id="parentTabContainer">
-                  <ul className="nav ej-nav-header" id="parentTab" role="tablist">
-                    <li className="ej-nav-item" onClick={this.DemoToggle}>
-                      <Link to={'#demo'} data-toggle="tab" role="tab" aria-selected="true" onClick={this.dontGoToLink} className={`${this.state.isDemoActive ? 'active' : ''}`}>
-                        <span className="ej-sb-icons ej-demo-icon"></span><span>DEMO</span>
-                      </Link >
-                    </li>
-                    <li className="ej-nav-item source-tab" onClick={() => { this.SourceActive(); this.sourceTab(); }} >
-                      <Link to={'#source'} data-toggle="tab" role="tab" aria-selected="false" onClick={this.dontGoToLink} className={`${this.state.isSourceActive ? 'active' : ''}`}>
-                        <span className="ej-sb-icons ej-source-icon"></span><span>SOURCE</span>
-                      </Link>
-                    </li>
-                    <li className="ej-nav-item desc-tab" onClick={this.DescActive}>
-                      <Link to={'#description'} data-toggle="tab" role="tab" aria-selected="false" onClick={this.dontGoToLink} className={`${this.state.isDescActive ? 'active' : ''}`} >
-                        <span className="ej-sb-icons ej-description-icon"></span><span>Description</span>
-                      </Link>
-                    </li>
-                    <li className="ej-nav ej-nav-item ej-sb-icons">
-                      <div className="new-tab ej-nav-sub-item">
-                        <div className="ej-nav-new ej-nav-sub-item" onClick={this.newWindow} title="Open in New Window" tabIndex="0"></div>
-                      </div>
-                      <div className="ej-nav-prev ej-nav-sub-item" title="Previous Sample" onClick={this.navigateNextOrPrev.bind(this, this.props.report.sampleName, "previous")} tabIndex="0" >
-                      </div>
-                      <div className="ej-nav-next ej-nav-sub-item" title="Next Sample" tabIndex="0" onClick={this.navigateNextOrPrev.bind(this, this.props.report.sampleName, "next")}></div>
-                    </li>
-                  </ul>
-                  <div className="tab-content ej-tab-content" id="parentTabContent">
-                    <div className={`tab-pane ej-tab-pane ${this.state.isDemoActive ? "active" : ""}`} id="demo" role="tabpanel" >
-                      <ej-sample>
-                        <div id='container' style={{ height: window.innerHeight + 'px' }}>
+            <div>
+              <ej-maincontent>
+                <div className="ej-main-body-content">
+                  <h1 className="ej-title">{this.props.report.sampleName}</h1>
+                  <p className="ej-meta-description">{this.props.report.metaData.description}</p>
+                  <div id="parentTabContainer">
+                    <ul className="nav ej-nav-header" id="parentTab" role="tablist">
+                      <li className="ej-nav-item" onClick={this.DemoToggle}>
+                        <Link to={'#demo'} data-toggle="tab" role="tab" aria-selected="true" onClick={this.dontGoToLink} className={`${this.state.isDemoActive ? 'active' : ''}`}>
+                          <span className="ej-sb-icons ej-demo-icon"></span><span>DEMO</span>
+                        </Link >
+                      </li>
+                      <li className="ej-nav-item source-tab" onClick={() => { this.SourceActive(); this.getSource(); }} >
+                        <Link to={'#source'} data-toggle="tab" role="tab" aria-selected="false" onClick={this.dontGoToLink} className={`${this.state.isSourceActive ? 'active' : ''}`}>
+                          <span className="ej-sb-icons ej-source-icon"></span><span>SOURCE</span>
+                        </Link>
+                      </li>
+                      {/*<li className="ej-nav-item desc-tab" onClick={this.DescActive}>
+                        <Link to={'#description'} data-toggle="tab" role="tab" aria-selected="false" onClick={this.dontGoToLink} className={`${this.state.isDescActive ? 'active' : ''}`} >
+                          <span className="ej-sb-icons ej-description-icon"></span><span>Description</span>
+                        </Link>
+    </li>*/}
+                      <li className="ej-nav ej-nav-item ej-sb-icons">
+                        <div className="new-tab ej-nav-sub-item">
+                          <div className="ej-nav-new ej-nav-sub-item" onClick={this.newWindow} title="Open in New Window" tabIndex="0"></div>
+                        </div>
+                        <div className="ej-nav-prev ej-nav-sub-item" title="Previous Sample" onClick={this.navigateNextOrPrev.bind(this, this.props.report.sampleName, "previous")} tabIndex="0" >
+                        </div>
+                        <div className="ej-nav-next ej-nav-sub-item" title="Next Sample" tabIndex="0" onClick={this.navigateNextOrPrev.bind(this, this.props.report.sampleName, "next")}></div>
+                      </li>
+                    </ul>
+                    <div className="tab-content ej-tab-content" id="parentTabContent">
+                      <div className={`tab-pane ej-tab-pane ${this.state.isDemoActive ? "active" : ""}`} id="demo" role="tabpanel" >
+                        <ej-sample>
                           {this.ViewComponent(componentName)}
-                        </div>
-                      </ej-sample>
-                    </div>
-                    <div className={`tab-pane ${this.state.isSourceActive ? "active" : ""}`} id="source" role="tabpanel">
-                      <div id="childTabContainer">
-                        <div className="tab-content ej-tab-content" id="childTabContent">
-                          <div className={`tab-pane ej-tab-pane js-content show ${this.state.isSourceActive ? "active" : ""}`} id="js" role="tabpanel"></div>
-                          {/* <div className="tab-pane ej-tab-pane html-content" id="html" role="tabpanel"></div> */}
-                        </div>
-                        <ul className="nav ej-nav-header" id="childtTab" role="tablist">
-                          <li className="ej-nav-item">
-                            <a className="active js-header " data-toggle="tab" role="tab" aria-selected="true">{this.props.report.routerPath + ".js"}</a>
-                          </li>
-                          {/* <li className="ej-nav-item">
+                        </ej-sample>
+                      </div>
+                      <div className={`tab-pane ${this.state.isSourceActive ? "active" : ""}`} id="source" role="tabpanel">
+                        <div id="childTabContainer">
+                          <div className="tab-content ej-tab-content" id="childTabContent">
+                            <div className={`tab-pane ej-tab-pane js-content show ${this.state.isSourceActive ? "active" : ""}`} id="js" role="tabpanel"></div>
+                            {/* <div className="tab-pane ej-tab-pane html-content" id="html" role="tabpanel"></div> */}
+                          </div>
+                          <ul className="nav ej-nav-header" id="childtTab" role="tablist">
+                            <li className="ej-nav-item">
+                              <a className="active js-header " data-toggle="tab" role="tab" aria-selected="true">{this.props.report.routerPath + ".js"}</a>
+                            </li>
+                            {/* <li className="ej-nav-item">
                           <a className="html-header" href="#html" data-toggle="tab" role="tab" aria-selected="false"></a>
                         </li> */}
-                        </ul>
+                          </ul>
+                        </div>
                       </div>
-                    </div>
-                    <div className={`tab-pane ej-tab-pane ${this.state.isDescActive ? "active" : ""}`} id="ej-description" role="tabpanel">
-                      {this.ViewComponent(componentName, "desc")}
+                      {/*<div className={`tab-pane ej-tab-pane ${this.state.isDescActive ? "active" : ""}`} id="ej-description" role="tabpanel">
+                        {this.ViewComponent(componentName, "desc")}
+                      </div>*/}
                     </div>
                   </div>
                 </div>
+              </ej-maincontent>
+            </div>
+            {/* Description section */}
+            <div>
+              <div className={`tab-pane ej-tab-pane ${this.state.isDescActive ? "active" : ""}`} id="ej-description" role="tabpanel">
+                {this.ViewComponent(componentName, "desc")}
               </div>
-            </ej-maincontent>
+            </div>
+            {/* Banner section */}
+            <div id="footer-banner">
+              <div id="ad-banner-head" className="ad-header">{bannerData.text}</div>
+              <div className="content-area" style={{ display: "flex", flexWrap: "wrap" }}>
+                <div className="ad-cnt-pt">
+                  <span className="tick-mark"></span>
+                  <div className="cnt-text cnt-text-1">{bannerData.features[0]}</div>
+                </div>
+                <div className="ad-cnt-pt">
+                  <span className="tick-mark"></span>
+                  <div className="cnt-text cnt-text-2">{bannerData.features[1]}</div>
+                </div>
+                <div className="ad-cnt-pt">
+                  <span className="tick-mark"></span>
+                  <div className="cnt-text cnt-text-3">{bannerData.features[2]}</div>
+                </div>
+              </div>
+              <a className="free-trial-url" target="_blank" href={bannerData.freeTrialUrl}>
+                <div className="free-trial">TRY IT FOR FREE</div>
+              </a>
+            </div>
+            {/* Footer section */}
+            <div className="ej-lp-footer">
+              <div className="ej-lp-footer-links">
+              <a href="https://help.boldreports.com/embedded-reporting/react-reporting/" target="_blank">
+                  Documentation
+              </a>
+              <a href="https://www.boldreports.com/blog" target="_blank">
+                  Blog
+              </a>
+              <a href="https://www.boldreports.com/faq" target="_blank">
+                  FAQ
+              </a>
+              <a href="https://support.boldreports.com/" target="_blank">
+                  Support
+              </a>
+              <a href="https://www.boldreports.com/feedback" target="_blank">
+                  Feedback
+              </a>
+              </div>
+              <div className="ej-lp-footer-copyright">Copyright © 2001-2023 Syncfusion Inc.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -195,12 +251,39 @@ class MainContentPreview extends Component {
     var SampleComponent = Globals.SampleComponents[componentName];
     return <SampleComponent />
   }
+  componentDidUpdate() {
+    window.addEventListener('resize', () => {
+      this.setReportsHeight();
+    });
+  }
+  setReportsHeight() {
+    if (location.href.includes('/preview') && location.href.includes('/external-parameter-report')) {
+      var style = document.getElementById('reports-style');
+      if (!style) {
+        style = document.createElement('style');
+        style.id = 'reports-style';
+        document.body.appendChild(style);
+      }
+      style.textContent = `ej-sample{
+              display:block;
+              overflow: hidden;
+              height: ${window.innerHeight -
+        (document.getElementById('previewContainer').getBoundingClientRect().top - document.body.getBoundingClientRect().top)}px
+            }`;
+      document.getElementById('report-viewer').style.height = `${window.innerHeight -
+        (document.getElementById('previewContainer').getBoundingClientRect().top - document.body.getBoundingClientRect().top)}px`;
+      document.getElementById('report-viewer').style.width = `100%`;
+    }
+  }
+  componentDidMount() {
+    this.setReportsHeight();
+  }
   render() {
     const componentName = this.props.report.sampleName.replace(/\s/g, '');
     document.title = this.props.report.sampleName + ' | Preview | React Report Viewer';
     return (
       <div>
-        <Header />
+        <Header isPreview="true"/>
         <div className="ej-main-parent-content">
           <div id="previewContainer">
             {this.ViewComponent(componentName)}

@@ -2,14 +2,14 @@
 import React, { Component } from 'react';
 import { Globals } from '../globals';
 
-class Paystub extends Component {
+class SparkLine extends Component {
     render() {
         if (this.props.content !== 'desc') {
             return (
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/paystub.rdlc'}
+                    reportPath={'~/Resources/demos/Report/spark-line.rdlc'}
                     reportLoaded={Globals.onReportLoaded}
                     processingMode={'Local'}
                     toolbarSettings={Globals.TOOLBAR_OPTIONS}
@@ -20,17 +20,11 @@ class Paystub extends Component {
             return (
                 <div id="description">
                     <p>
-                        Paystub RDLC report represents the paystub of a company in a single sheet using <a
-                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
-                            target="_blank">Tablix</a> report item.
+                        A sparkline is a small embedded line graph that illustrates a single trend. In this report, sales data are
+                        interpreted to visualize the sales trends using <a
+                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/sparkline/"
+                            target="_blank">Spark Line</a> report items.
                     </p>
-                    <ul>
-                        <li>
-                            The Paystub are displayed dynamically using <a href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/compose-report/properties-panel/#set-expression"
-                                target="_blank">expression</a> with the text box report item.
-                        </li>
-                        <li>The data used in this table is a local JSON data.</li>
-                    </ul>
                     <p>
                         More information about RDLC report can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank">documentation </a>
@@ -41,4 +35,4 @@ class Paystub extends Component {
         }
     }
 }
-export default Paystub;
+export default SparkLine;
