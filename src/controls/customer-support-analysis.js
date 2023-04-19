@@ -30,12 +30,12 @@ class CustomerSupportAnalysis extends Component {
                             details by clicking a representative name in the <code>Top 5 Support Representative</code> table data region
                             in the report design.</li>
                         <li>Sorting is applied to sort the <code>Representative Name</code> in
-                            <code>Average resolution time (hrs) by Representative</code> chart.
+                            <code> Average resolution time (hrs) by Representative</code> chart.
                             More information about sorting data in matrix groups can be found in this <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/sort-data-in-tablix-data-region/#set-sort-expression-on-a-tablix-group"
                                 target="_blank">documentation</a> section.</li>
                         <li>The <code>TopN</code> filter is applied to the table data region to display the
-                            <code>Top 5 Satisfied Customer</code>. More information on filtering data with table
+                            <code> Top 5 Satisfied Customer</code>. More information on filtering data with table
                             data region can be found in this <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/add-filters-to-tablix-data-region/#set-filter-on-tablix-data-region"
                                 target="_blank">documentation</a> section.</li>

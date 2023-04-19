@@ -42,14 +42,14 @@ class LoadLargeData extends Component {
                     </p>
                     <ul>
                         <li>The table is displayed with a total row, and the sum of sales is calculated by aggregation of
-                            <code>OrderQty</code> and <code>UnitPrice</code> data fields using the <a
+                            <code> OrderQty</code> and <code>UnitPrice</code> data fields using the <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/compose-report/properties-panel/#set-expression"
                                 target="_blank">Expression</a> support.</li>
                         <li>The Item total data text box is formatted in Currency format to enhance the report design.</li>
                     </ul>
                     <p>
                         More information about RDLC report can be found in this <a
-                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank">documentation</a>
+                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank">documentation </a>
                         section.
                     </p>
                 </div>
