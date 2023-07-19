@@ -1,6 +1,6 @@
 {
   "name": "react-sample-browser",
-  "version": "1.0.0",
+  "version": "5.2.26",
   "private": true,
   "dependencies": {
     "@boldreports/react-reporting-components": "^2.4.30",

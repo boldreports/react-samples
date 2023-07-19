@@ -227,9 +227,6 @@ class MainContentSample extends Component {
               <a href="https://www.boldreports.com/blog" target="_blank">
                   Blog
               </a>
-              <a href="https://www.boldreports.com/faq" target="_blank">
-                  FAQ
-              </a>
               <a href="https://support.boldreports.com/" target="_blank">
                   Support
               </a>

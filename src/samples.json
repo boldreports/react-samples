@@ -13,8 +13,7 @@
     "Javascript": "javascript/#/",
     "Blazor":  "blazor/",
     "ASP.NET Core": "aspnet-core/",
-    "ASP.NET MVC": "aspnet-mvc/",
-    "ASP.NET WebForms": "aspnet-web-forms/"
+    "ASP.NET MVC": "aspnet-mvc/"
   },
   "platform": "React",
   "rootPath": "/react/",
