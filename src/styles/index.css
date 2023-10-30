@@ -1,7 +1,6 @@
 @import './../common/header/header.css';
 @import './../common/sidebar/sidebar.css';
 @import './../common/main-content/main-content.css';
-@import './ej2-buttons.min.css';
 @import './../../node_modules/prismjs/themes/prism.css';
 @import './../../node_modules/codemirror/lib/codemirror.css';
 @import './../../node_modules/codemirror/addon/hint/show-hint.css';
@@ -369,7 +368,6 @@ ej-sidebar {
   display: block;
   width: 100px;
   height: 30px;
-  line-height: 30px;
   margin: 20px 0 0 124px;
 }
 
@@ -420,4 +418,8 @@ ej-sidebar {
   margin: 0 0 0 20px;
 }
 
+}
+
+#designer_reportName {
+  visibility: hidden;
 }

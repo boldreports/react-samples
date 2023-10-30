@@ -18,7 +18,7 @@ class DynamicColumns extends Component {
             return (
                 <div id="description">
                     <p>
-                    Dynamic column tabular report demonstrates to change the number of columns at runtime using JavaScript Bold Report Viewer.
+                    Dynamic column tabular report demonstrates to change the number of columns at runtime using React Bold Report Viewer.
                     </p>
                     <ul>
                      <li>

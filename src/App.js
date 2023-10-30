@@ -4,6 +4,12 @@ import './styles/index.css'
 import { Designer } from './controls/designer/designer';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
+import '@boldreports/javascript-reporting-controls/Content/v2.0/tailwind-light/bold.report-viewer.min.css';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/common/bold.reports.common.min';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/common/bold.reports.widgets.min';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/bold.report-viewer.min';
+import '@boldreports/javascript-reporting-controls/Content/v2.0/tailwind-light/bold.report-designer.min.css';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/bold.report-designer.min';
 import { MainContentSample, MainContentPreview } from './common/main-content/main-content';
 const samples = data.samples;
 

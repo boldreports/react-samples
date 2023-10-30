@@ -1,9 +1,10 @@
 /* eslint-disable */
 import { React, Component } from 'react';
 import { Header } from './../../common/header/header';
-import { Globals } from './../../globals';
 import rdlcData from '../../rdlcData';
 import data from '../../samples.json';
+import jquery from 'jquery';
+window.$ = window.jQuery = jquery;
 
 const samples = data.samples;
 
@@ -33,8 +34,8 @@ var reportItemExtensions = [{
 
 function DESIGNER_TOOLBAR_RENDERING(args) {
   if ($(args.target).hasClass('e-rptdesigner-toolbarcontainer')) {
-    var saveButton = ej.buildTag('li.e-rptdesigner-toolbarli e-designer-toolbar-align e-tooltxt', '', { }, { });
-    var saveIcon = ej.buildTag('span.e-rptdesigner-toolbar-icon e-toolbarfonticonbasic e-rptdesigner-toolbar-save e-li-item', '', { }, { title: 'Save' });
+    var saveButton = ej.buildTag('li.e-rptdesigner-toolbarli e-designer-toolbar-align e-tooltxt', '', {}, {});
+    var saveIcon = ej.buildTag('span.e-rptdesigner-toolbar-icon e-toolbarfonticonbasic e-rptdesigner-toolbar-save e-li-item', '', {}, { title: 'Save' });
     args.target.find('ul:first').append(saveButton.append(saveIcon));
 
   }
@@ -59,37 +60,39 @@ class Designer extends Component {
     var reportName = getReportName();
     var designerInst = $('#designer').data('boldReportDesigner');
     if (this.props.reportType === 'rdlc') {
-      if (reportName == "load-large-data.rdlc") {
-        designerInst.setModel({
-          reportType: 'RDLC',
-          previewReport: this.previewReport,
-          previewOptions: {
-            exportItemClick: Globals.exportItemClick,
-            toolbarSettings: {
-              items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Export & ~ej.ReportViewer.ToolbarItems.Print
-            }
+      designerInst.setModel({
+        reportType: 'RDLC',
+        previewReport: this.previewReport,
+        previewOptions: {
+          exportItemClick: Globals.exportItemClick,
+          toolbarSettings: {
+            items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Find
           }
-        });
-      }
-      else {
-        designerInst.setModel({
-          reportType: 'RDLC',
-          previewReport: this.previewReport,
-          previewOptions: {
-            exportItemClick: Globals.exportItemClick
-          }
-        });
-      }
+        }
+      });
     }
     else {
       designerInst.setModel({
         previewOptions: {
-          exportItemClick: Globals.exportItemClick
+          exportItemClick: Globals.exportItemClick,
+          toolbarSettings: {
+            items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Find
+          }
         }
       });
     }
     if (reportName) {
       designerInst.openReport(reportName.indexOf("external-parameter-report") !== -1 ? "product-line-sales.rdl" : reportName.indexOf("parameter-customization") !== -1 ? "product-line-sales.rdl" : reportName);
+    }
+    if (reportName == "load-large-data.rdl") {
+      designerInst.setModel({
+        previewOptions: {
+          toolbarSettings: {
+            items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Export & ~ej.ReportViewer.ToolbarItems.Print,
+            toolbars: ej.ReportViewer.Toolbars.All & ~ej.ReportViewer.Toolbars.Vertical
+          }
+        }
+      });
     }
   }
   onAjaxBeforeLoad = (args) => {
@@ -126,7 +129,9 @@ class Designer extends Component {
     return samples[currentIndex].sampleName;
   }
   render() {
-    document.title = (getReportName() ? this.findSampleName(getReportName().replace(/.rdl.*/g, '')) + " | " : '') + (this.props.reportType === 'rdlc' ? 'RDLC' : 'RDL') + ' Sample | React Report Designer | Bold Reports';
+    const title = (getReportName() ? this.findSampleName(getReportName().replace(/.rdl.*/g, '')) + " | " : '') + (this.props.reportType === 'rdlc' ? 'RDLC' : 'RDL') + ' Sample | React Report Designer';
+    document.title = (title.length < 45) ? title + ' | Bold Reports' : title;
+    document.querySelector('meta[name="description"]').setAttribute('content', "The React Bold Report Designer allows the end-users to arrange/customize the reports appearance in browsers. It helps to edit the " + (getReportName() ? this.findSampleName(getReportName().replace(/.rdl.*/g, '')) : 'RDL Sample') + " for customer's application needs.");
     return (
       <div>
         <Header />
@@ -140,8 +145,11 @@ class Designer extends Component {
             toolbarClick={DESIGNER_TOOLBAR_CLICK}
             reportOpened={this.props.reportType === 'rdlc' ? this.onReportOpened : ''}
             reportItemExtensions={reportItemExtensions}
+            permissionSettings={{
+              dataSource: ej.ReportDesigner.Permission.All & ~ej.ReportDesigner.Permission.Create
+            }}
             toolbarSettings={{
-              items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.Save
+              items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.Save & ~ej.ReportDesigner.ToolbarItems.Open
             }}
           >
           </BoldReportDesignerComponent>
