@@ -10,7 +10,7 @@
   "otherPlatforms": {
     "React": "react/#",
     "Angular": "angular/#/",
-    "Javascript": "javascript/#/",
+    "JavaScript": "javascript/#/",
     "Blazor":  "blazor/",
     "ASP.NET Core": "aspnet-core/",
     "ASP.NET MVC": "aspnet-mvc/"
@@ -50,7 +50,7 @@
         "index": 1
       },
       "metaData": {
-        "description": "Company Sales report shows product sales against year in matrix format using SSRS Tablix report item in React Bold Report Viewer."
+        "description": "The SSRS Tablix report elegantly presents the company's sales data in a matrix format, showcasing product sales across various years in React Bold Report Viewer."
       }
     },
     {
@@ -63,7 +63,7 @@
         "index": 3
       },
       "metaData": {
-        "description": "Mail merge shows to envelope the employee details using SSRS List report item in React Bold Report Viewer."
+        "description": "Demonstrates how to create mail merge envelopes for employee details using the SSRS List report item with the React Bold Report Viewer."
       }
     },
     {
@@ -76,7 +76,7 @@
         "index": 9
       },
       "metaData": {
-        "description": "This demo shows the sales order details using RDL basic table with currency formatting in price textbox fields in React Bold Report Viewer."
+        "description": "This demonstration showcases sales order details using a basic RDL table format, featuring currency formatting for the price fields textbox in React Bold Report Viewer."
       }
     },
     {
@@ -89,7 +89,7 @@
         "index": 5
       },
       "metaData": {
-        "description": "This demo shows the sales territory and its total sales using drilldown with  SSRS matrix report in React Bold Report Viewer."
+        "description": "This demonstration highlights an SSRS matrix report with drilldown capabilities, focusing on the presentation of sales territories and their total sales in React Bold Report Viewer."
       }
     },
     {
@@ -102,7 +102,7 @@
         "index": 0
       },
       "metaData": {
-        "description": "This demo shows the customer details in SSRS table report item and details are highlighted based on conditional row formatting in React Bold Report Viewer. "
+        "description": "This demonstration illustrates customer details in an SSRS table report item, with the details being highlighted based on conditional row formatting in React Bold Report Viewer. "
       }
     },
     {
@@ -115,7 +115,7 @@
         "index": 0
       },
       "metaData": {
-        "description": "The barcode demo shows the available 1D, 2D and QR barcode types rendered in React Bold Report Viewer through RDL Custom Report Item."
+        "description": "The barcode demo provides an extensive display of 1D, 2D, and QR barcode types, all seamlessly rendered through the React Bold Report Viewer using RDL Custom Report Item."
       }
     },
     {
@@ -128,7 +128,7 @@
         "index": 1
       },
       "metaData": {
-        "description": "This demo shows customer support analysis with SSRS drill through to explore details in another report based on user click action in React Bold Report Viewer."
+        "description": "This demo features a customer support analysis with SSRS drill-through capabilities that allow users to explore details in another report through a click action in the React Bold Report Viewer."
       }
     },
     {
@@ -193,7 +193,7 @@
         "index": 4
       },
       "metaData": {
-        "description": "This demo shows the product and suppliers details using SSRS pyramid, bar, column charts and table widget in React Bold Report Viewer.",
+        "description": "This demo effectively showcases product and supplier details by leveraging SSRS pyramid, bar, column charts, and a table widget within the React Bold Report Viewer.",
         "title": "Northwind Products Report"
       }
     },
@@ -259,7 +259,7 @@
         "index": 2
       },
       "metaData": {
-        "description": "This demo shows product sales total based on  quarterly wise RDL tablix grouping in React Bold Report Viewer."
+        "description": "This demo offers a transparent portrayal of product sales totals, thoughtfully organized by quarters using RDL tablix grouping in the React Bold Report Viewer."
       }
     },
     {
@@ -279,13 +279,14 @@
       "routerPath": "load-large-data",
       "sampleName": "Load Large Data",
       "basePath": "report-viewer",
+      "status": "Updated",
       "directoryName": "load-large-data",
       "imageDetails": {
         "isLandscape": false,
         "index": 9
       },
       "metaData": {
-        "description": "This demo shows the sales order details using RDLC basic table with currency formatting in price textbox fields in React Bold Report Viewer."
+        "description": "This demo effectively presents sales order details through a straightforward RDL basic table containing 100K rows, complete with currency formatting, all within the React Bold Report Viewer."
       }
     },
     {
@@ -298,7 +299,7 @@
         "index": 12
       },
       "metaData": {
-        "description": "This demos allows shows the consolidated balance sheet RDLC report represents the assets and liabilities of a company in React Bold Report Viewer."
+        "description": "This demo succinctly presents a consolidated balance sheet RDLC report, emphasizing a company's assets and liabilities in React Bold Report Viewer."
       }
     },
     {
@@ -311,7 +312,7 @@
         "index": 7
       },
       "metaData": {
-        "description": "This demos shows the Paystub report represents the payslip of a company in React Bold Report Viewer."
+        "description": "The demo features a Paystub report that meticulously showcases the company's payslip, encompassing all crucial details and information in React Bold Report Viewer."
       }
     },
     {
@@ -324,7 +325,7 @@
         "index": 8
       },
       "metaData": {
-        "description": "This demos allows you to choose the chart series dynamically in React Bold Report Viewer."
+        "description": "This demo offers dynamic control over chart series selection, enhancing the interactive reporting experience in  React Bold Report Viewer."
       }
     },
     {
@@ -338,7 +339,7 @@
         "index": 9
       },
       "metaData": {
-        "description": "This demo represents company sales against year in table format with data bar report item in React Bold Report Viewer."
+        "description": "This demo portrays company sales against years in a tabular format, incorporating a data bar report item for visual clarity in the React Bold Report Viewer."
       }
     },
     {
@@ -352,7 +353,7 @@
         "index": 10
       },
       "metaData": {
-        "description": "This demo shows the company sales data with sparkline report item to represents the sales trend in React Bold Report Viewer."
+        "description": "This demo effectively displays company sales data using a sparkline report item, offering a clear and insightful representation of the sales trend in React Bold Report Viewer."
       }
     },
     {
@@ -365,7 +366,7 @@
         "index": 13
       },
       "metaData": {
-        "description": "This demos allows you to choose the column of the table dynamically in React Bold Report Viewer."
+        "description": "This demo empowers users with the ability to dynamically select table columns for enhanced flexibility and customization within the React Bold Report Viewer."
       }
     },
     {
@@ -391,8 +392,22 @@
         "index": 7
       },
       "metaData": {
-        "description": "The Product Line Sales report displays sales details organized by category and subcategory of products using cascading parameters and date time picker non cascading parameters in React Bold Report Viewer."
+        "description": "This demo displays sales details organized by category and subcategory of products using cascading parameters and date time picker non cascading parameters in React Bold Report Viewer."
       }
-    }
+    },
+    {
+      "routerPath": "sub-report",
+      "sampleName": "Sub Report",
+      "basePath": "report-viewer",
+      "directoryName": "sub-report",
+      "status": "New",
+      "imageDetails": {
+        "isLandscape": false,
+        "index": 14
+      },
+      "metaData": {
+        "description": "This demo grants the capability to embed an additional report within the body of the main report, enriching the content and interactivity of the report in the React Bold Report Viewer."
+      }
+    } 
   ]
 }

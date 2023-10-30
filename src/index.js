@@ -4,14 +4,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
 
-import './globals';
-import '@boldreports/javascript-reporting-controls/Scripts/bold.report-designer.min';
-import '@boldreports/javascript-reporting-controls/Scripts/bold.report-viewer.min';
-import '@boldreports/javascript-reporting-controls/Content/material/bold.reports.all.min.css';
-import '@boldreports/javascript-reporting-controls/Content/material/bold.reportdesigner.min.css';
-//Data-Visualization
-import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.bulletgraph.min';
-import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.chart.min';
 //Reports react base
 import '@boldreports/react-reporting-components/Scripts/bold.reports.react.min';
 

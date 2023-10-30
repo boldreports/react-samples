@@ -1,4 +1,3 @@
-import jquery from 'jquery';
 import React from 'react';
 import createReactClass from 'create-react-class';
 import ReactDOM from 'react-dom';
@@ -30,19 +29,21 @@ import SparkLine from './controls/spark-line';
 import DynamicColumns from './controls/dynamic-columns';
 import ExternalParameterReport from './controls/external-parameter-report';
 import ParameterCustomization from './controls/parameter-customization';
+import SubReport from './controls/sub-report';
 import rdlcData from './rdlcData'
 
 window.React = React;
 window.createReactClass = createReactClass;
 window.ReactDOM = ReactDOM;
-window.$ = window.jQuery = jquery;
 
 var TOOLBAR_OPTIONS = {
     showToolbar: true,
+    items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Find,
     customGroups: [{
         items: [{
             type: 'Default',
             cssClass: "e-icon e-edit e-reportviewer-icon ej-webicon CustomGroup",
+            prefixIcon: "e-viewer-icons edit",
             id: "edit-report",
             // Need to add the proper header and content once, the tool tip issue resolved.
             tooltip: {
@@ -51,7 +52,6 @@ var TOOLBAR_OPTIONS = {
             }
         }],
         // Need to remove the css (e-reportviewer-toolbarcontainer ul.e-ul:nth-child(4)) once the group index issue resolved
-        groupIndex: 5,
         cssClass: "e-show"
     }]
 };
@@ -65,8 +65,8 @@ function EDIT_REPORT(args) {
     }
 }
 
-var ServiceURL = 'https://demos.boldreports.com/services/api/ReportViewerWebApi';
-var DesignerServiceURL = 'https://demos.boldreports.com/services/api/ReportDesignerWebApi';
+var ServiceURL = '/demos/services/api/ReportViewerWebApi';
+var DesignerServiceURL = '/demos/services/api/ReportDesignerWebApi';
 
 const SampleComponents = {
     ProductLineSales: ProductLineSales,
@@ -96,7 +96,8 @@ const SampleComponents = {
     SparkLine: SparkLine,
     DynamicColumns: DynamicColumns,
     ExternalParameterReport: ExternalParameterReport,
-    ParameterCustomization: ParameterCustomization
+    ParameterCustomization: ParameterCustomization,
+    SubReport: SubReport
 }
 
 function onReportLoaded(args) {

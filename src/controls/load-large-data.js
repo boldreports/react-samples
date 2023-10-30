@@ -9,14 +9,18 @@ class LoadLargeData extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/load-large-data.rdlc'}
+                    reportPath={'~/Resources/demos/Report/load-large-data.rdl'}
                     toolbarSettings={{
                         showToolbar: true,
-                        items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Export & ~ej.ReportViewer.ToolbarItems.Print & ~ej.ReportViewer.ToolbarItems.ExportSetup,
+                        items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Export & ~ej.ReportViewer.ToolbarItems.Print,
+                        toolbars: ej.ReportViewer.Toolbars.All & ~ej.ReportViewer.Toolbars.Vertical,
                         customGroups: [{
+                            groupIndex: 3,
+                            Index: 1,
                             items: [{
                                 type: 'Default',
                                 cssClass: "e-icon e-edit e-reportviewer-icon ej-webicon CustomGroup",
+                                prefixIcon: "e-viewer-icons edit",
                                 id: "edit-report",
                                 // Need to add the proper header and content once, the tool tip issue resolved.
                                 tooltip: {
@@ -25,7 +29,6 @@ class LoadLargeData extends Component {
                                 }
                             }],
                             // Need to remove the css (e-reportviewer-toolbarcontainer ul.e-ul:nth-child(4)) once the group index issue resolved
-                            groupIndex: 3,
                             cssClass: "e-show"
                         }]
                     }}
@@ -36,9 +39,7 @@ class LoadLargeData extends Component {
             return (
                 <div id="description">
                     <p>
-                        This report shows 100,000 records of sales order details using the <a
-                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
-                            target="_blank">Tablix</a> report item in RDLC report.
+                        This report shows 100k records of sales order details using the Tablix report item in RDL report.
                     </p>
                     <ul>
                         <li>The table is displayed with a total row, and the sum of sales is calculated by aggregation of
@@ -48,8 +49,8 @@ class LoadLargeData extends Component {
                         <li>The Item total data text box is formatted in Currency format to enhance the report design.</li>
                     </ul>
                     <p>
-                        More information about RDLC report can be found in this <a
-                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank">documentation </a>
+                        More information about Tablix can be found in this <a
+                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/" target="_blank">documentation </a>
                         section.
                     </p>
                 </div>

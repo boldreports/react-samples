@@ -123,7 +123,9 @@ class MainContentSample extends Component {
   }
   render() {
     const componentName = this.props.report.sampleName.replace(/\s/g, '');
-    document.title = this.props.report.sampleName + ' | React Report Viewer | Bold Reports';
+    const title = this.props.report.sampleName + ' | React Report Viewer';
+    document.title = (title.length < 45) ? title + ' | Bold Reports' : title;
+    document.querySelector('meta[name="description"]').setAttribute('content', this.props.report.metaData.description);
     return (
       <div>
         <Header isViewer="true" />
@@ -277,7 +279,9 @@ class MainContentPreview extends Component {
   }
   render() {
     const componentName = this.props.report.sampleName.replace(/\s/g, '');
-    document.title = this.props.report.sampleName + ' | Preview | React Report Viewer';
+    const title = this.props.report.sampleName + ' | Preview | React Report Viewer';
+    document.title = (title.length < 45) ? title + ' | Bold Reports' : title;
+    document.querySelector('meta[name="description"]').setAttribute('content',  'The React Bold Report Viewer allows the end-users to visualize the ' + this.props.report.sampleName + ' report in browsers.');
     return (
       <div>
         <Header isPreview="true"/>

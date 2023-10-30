@@ -2,6 +2,8 @@ const gulp = require('gulp');
 var shelljs = require('shelljs');
 const fs = require('fs');
 
+const barcodeAssets = ['images', 'barcode.reportitem.css', 'barcode.reportitem.js', 'qrbarcode.reportitem.js'];
+const barCodeSrcDir = 'node_modules/@boldreports/javascript-reporting-extensions/';
 const barcodeDir = './src/controls/extensions/report-item-extensions/';
 const barcodeTeml = {
     '1D': 'export { EJBarcode };',
@@ -27,6 +29,14 @@ gulp.task('copy-dependent-scripts', function (done) {
     done();
 });
 
+gulp.task('copy-barcode-assets', (done) => {
+    shelljs.mkdir('-p',`${process.cwd()}/src/controls/extensions/report-item-extensions/`);
+    barcodeAssets.forEach(file => {
+        copyFile(`${process.cwd()}/${barCodeSrcDir + file}`, barcodeDir);
+    })
+    done();
+})
+
 gulp.task('update-barcode', (done) => {
     if (fs.existsSync(`${barcodeDir}barcode.reportitem.js`) && fs.existsSync(`${barcodeDir}qrbarcode.reportitem.js`)) {
         var barcode = fs.readFileSync(`${barcodeDir}barcode.reportitem.js`);
@@ -44,5 +54,5 @@ gulp.task('update-barcode', (done) => {
 });
 
 function copyFile(from , to){
-    shelljs.cp(from, to);
+    shelljs.cp('-r', from, to);
 }
