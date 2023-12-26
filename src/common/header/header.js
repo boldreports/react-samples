@@ -89,7 +89,7 @@ class Header extends Component {
                     <div className="ej-sb-left-side">
                         {this.props.isViewer ?
                             <div className="ej-sb-hamburger-icon ej-sb-icons" onClick={this.humbergerClick}></div> : ''}
-                        {this.props.isViewer ? <div className="ej-sb-platform-name">Bold Reports for React</div> : <a id="home_page" href="/" target="_blank">
+                        {this.props.isViewer ? <div className="ej-sb-platform-name">Bold Reports for React</div> : <a id="home_page" href="/" target="_blank" rel="noreferrer">
                             <div className="ej-platform-name">Bold Reports for React</div>
                         </a>}
                         {this.props.isViewer ?
@@ -104,9 +104,9 @@ class Header extends Component {
                     </div>
                     <div className="ej-sb-right-side">
                         {/* We hided this element as per management instruction  */}
-                        {/* <a className="ej-sb-button nav-link bold-schedule-demo" href="https://www.boldreports.com/schedule-free-demo" target="_blank">Schedule Free Demo</a> */}
-                        <a className="ej-sb-button nav-link product-detail" href={this.props.isViewer || this.props.isPreview ? 'https://www.boldreports.com/embedded-reporting/react-report-viewer' : 'https://www.boldreports.com/embedded-reporting/react-report-designer'} target="_blank">Product Detail</a>
-                        <a className="ej-sb-button nav-link try-it-free" href="https://app.boldid.net/reporting/embedded/register?plan=120&evaluation=v2&leadsource=demos.boldreports.com&gclid=&referrerroriginurl=https://demos.boldreports.com/pricing&secondaryreferraloriginurl=https://demos.boldreports.com/" target="_blank">Try it Free</a>
+                        {/* <a className="ej-sb-button nav-link bold-schedule-demo" href="https://www.boldreports.com/schedule-free-demo" target="_blank" rel="noreferrer">Schedule Free Demo</a> */}
+                        <a className="ej-sb-button nav-link product-detail" href={this.props.isViewer || this.props.isPreview ? 'https://www.boldreports.com/embedded-reporting/react-report-viewer' : 'https://www.boldreports.com/embedded-reporting/react-report-designer'} target="_blank" rel="noreferrer">Product Detail</a>
+                        <a className="ej-sb-button nav-link try-it-free" href="https://app.boldid.net/reporting/embedded/register?plan=128&evaluation=v2&leadsource=demos.boldreports.com&gclid=&referrerroriginurl=https://demos.boldreports.com/pricing&secondaryreferraloriginurl=https://demos.boldreports.com/" target="_blank" rel="noreferrer">Try it Free</a>
                     </div>
                 </div>
             </ej-header>

@@ -44,7 +44,7 @@ class MainContentSample extends Component {
     return samples[currentIndex];
   }
   newWindow = () => {
-    window.open(window.location.href + `/preview`);
+    window.open(window.location.href + `/preview`, "_blank", "noreferrer");
   }
   setReportsHeight() {
     var style = document.getElementById('reports-style');
@@ -216,23 +216,23 @@ class MainContentSample extends Component {
                   <div className="cnt-text cnt-text-3">{bannerData.features[2]}</div>
                 </div>
               </div>
-              <a className="free-trial-url" target="_blank" href={bannerData.freeTrialUrl}>
+              <a className="free-trial-url" target="_blank" rel="noreferrer" href={bannerData.freeTrialUrl}>
                 <div className="free-trial">TRY IT FOR FREE</div>
               </a>
             </div>
             {/* Footer section */}
             <div className="ej-lp-footer">
               <div className="ej-lp-footer-links">
-              <a href="https://help.boldreports.com/embedded-reporting/react-reporting/" target="_blank">
+              <a href="https://help.boldreports.com/embedded-reporting/react-reporting/" target="_blank" rel="noreferrer">
                   Documentation
               </a>
-              <a href="https://www.boldreports.com/blog" target="_blank">
+              <a href="https://www.boldreports.com/blog" target="_blank" rel="noreferrer">
                   Blog
               </a>
-              <a href="https://support.boldreports.com/" target="_blank">
+              <a href="https://support.boldreports.com/" target="_blank" rel="noreferrer">
                   Support
               </a>
-              <a href="https://www.boldreports.com/feedback" target="_blank">
+              <a href="https://www.boldreports.com/feedback" target="_blank" rel="noreferrer">
                   Feedback
               </a>
               </div>

@@ -9,7 +9,7 @@ class MailMerge extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/mail-merge.rdl'}
+                    reportPath={'mail-merge.rdl'}
                     toolbarSettings={Globals.TOOLBAR_OPTIONS}
                     toolBarItemClick={Globals.EDIT_REPORT}>
                 </BoldReportViewerComponent>)
@@ -26,7 +26,7 @@ class MailMerge extends Component {
                         <li>To keep data in a single page, rectangle report item is used as a container with the KeepTogether property
                             as true.</li>
                         <li><a href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/compose-report/properties-panel/#set-expression"
-                            target="_blank">Expression</a> is used to frame the employee details dynamically at run time.</li>
+                            target="_blank" rel="noreferrer">Expression</a> is used to frame the employee details dynamically at run time.</li>
                     </ul>
                     <p>
                         You can print or export this report as PDF, Excel, Word, HTML, PowerPoint, or CSV format using the
@@ -37,7 +37,7 @@ class MailMerge extends Component {
                     <p>
                         Mail merge report designing steps can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/list/design-ssrs-rdl-report-using-list/"
-                            target="_blank">documentation</a> section.
+                            target="_blank" rel="noreferrer">documentation</a> section.
                     </p>
                 </div>
             );

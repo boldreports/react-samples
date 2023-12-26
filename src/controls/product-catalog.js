@@ -9,7 +9,7 @@ class ProductCatalog extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/product-catalog.rdlc'}
+                    reportPath={'product-catalog.rdlc'}
                     reportLoaded={Globals.onReportLoaded}
                     processingMode={'Local'}
                     toolbarSettings={Globals.TOOLBAR_OPTIONS}
@@ -22,7 +22,7 @@ class ProductCatalog extends Component {
                     <p>
                         This report shows Mountain bike products information using the <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
-                            target="_blank">Tablix</a> report item in RDLC report.
+                            target="_blank" rel="noreferrer">Tablix</a> report item in RDLC report.
                     </p>
                     <ul>
                         <li>The table is displayed with Product no, image, name, size, weight and cost.</li>
@@ -30,7 +30,7 @@ class ProductCatalog extends Component {
                     </ul>
                     <p>
                         More information about RDLC report can be found in this <a
-                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank">documentation </a>
+                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank" rel="noreferrer">documentation </a>
                         section.
                     </p>
                 </div>

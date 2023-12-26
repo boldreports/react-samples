@@ -9,7 +9,7 @@ class CustomerSupportAnalysis extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/customer-support-analysis.rdl'}
+                    reportPath={'customer-support-analysis.rdl'}
                     toolbarSettings={Globals.TOOLBAR_OPTIONS}
                     toolBarItemClick={Globals.EDIT_REPORT}>
                 </BoldReportViewerComponent>)
@@ -33,17 +33,17 @@ class CustomerSupportAnalysis extends Component {
                             <code> Average resolution time (hrs) by Representative</code> chart.
                             More information about sorting data in matrix groups can be found in this <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/sort-data-in-tablix-data-region/#set-sort-expression-on-a-tablix-group"
-                                target="_blank">documentation</a> section.</li>
+                                target="_blank" rel="noreferrer">documentation</a> section.</li>
                         <li>The <code>TopN</code> filter is applied to the table data region to display the
                             <code> Top 5 Satisfied Customer</code>. More information on filtering data with table
                             data region can be found in this <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/add-filters-to-tablix-data-region/#set-filter-on-tablix-data-region"
-                                target="_blank">documentation</a> section.</li>
+                                target="_blank" rel="noreferrer">documentation</a> section.</li>
                     </ul>
                     <p>
                         More information about chart data region can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/"
-                            target="_blank">documentation</a> section.
+                            target="_blank" rel="noreferrer">documentation</a> section.
                     </p>
                 </div>
             );

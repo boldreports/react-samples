@@ -16,7 +16,7 @@ class ParameterCustomization extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/product-line-sales.rdl'}
+                    reportPath={'product-line-sales.rdl'}
                     toolbarSettings={Globals.TOOLBAR_OPTIONS}
                     toolBarItemClick={Globals.EDIT_REPORT}
                     parameterSettings={parameterSettings} beforeParameterAdd={onBeforeParameterAdd}>
@@ -27,7 +27,7 @@ class ParameterCustomization extends Component {
                 <div id="description">
                     <p>
                         The Product Line Sales RDL report represents the best performing sales people and stores using <a href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
-                            target="_blank">Tablix</a> and <a href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/" target="_blank">Chart</a>
+                            target="_blank" rel="noreferrer">Tablix</a> and <a href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/" target="_blank" rel="noreferrer">Chart</a>
                         report items.
                     </p>
                     <ul>
@@ -38,13 +38,13 @@ class ParameterCustomization extends Component {
                         <li>Non cascading parameters namely start date and end date also used in this report.</li>
                         <li>
                             End date non cascading parameter can be disabled using <a href="https://ej2.syncfusion.com/javascript/documentation/switch/es5-getting-started/"
-                                target="_blank">Switch</a> button provided
+                                target="_blank" rel="noreferrer">Switch</a> button provided
                         </li>
                         <li>Null button in the end date parameter is used to set the parameter value as null. No data will be filtered since end date is null</li>
                     </ul>
                     <p>
                         More information about Cascading Parameters can be found in this <a href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-parameters/create-cascading-parameter/"
-                            target="_blank">documentation</a> section.
+                            target="_blank" rel="noreferrer">documentation</a> section.
                     </p>
                 </div>
             );

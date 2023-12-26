@@ -58,9 +58,9 @@ var TOOLBAR_OPTIONS = {
 function EDIT_REPORT(args) {
     if (args.value === "edit-report") {
         var reportPath = location.href.lastIndexOf('external-parameter-report') !== -1 ? 
-        "/external-parameter-report" : location.href.lastIndexOf('parameter-customization') !== -1 ? '/parameter-customization' : args.model.reportPath.toString();
+        "external-parameter-report" : location.href.lastIndexOf('parameter-customization') !== -1 ? 'parameter-customization' : args.model.reportPath.toString();
         const ReportDesignerPath = reportPath.indexOf('.rdlc') !== -1 ? '#/report-designer/rdlc' : '#/report-designer';
-        var editReportPath = ReportDesignerPath + "/?report-name=" + reportPath.substr(reportPath.lastIndexOf("/") + 1, reportPath.length - 1);
+        var editReportPath = ReportDesignerPath + "/?report-name=" + reportPath;
         window.open(editReportPath);
     }
 }
