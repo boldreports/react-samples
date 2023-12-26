@@ -9,7 +9,7 @@ class TerritorySales extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/territory-sales.rdl'}
+                    reportPath={'territory-sales.rdl'}
                     toolbarSettings={Globals.TOOLBAR_OPTIONS}
                     toolBarItemClick={Globals.EDIT_REPORT}>
                 </BoldReportViewerComponent>)
@@ -34,7 +34,7 @@ class TerritorySales extends Component {
                     <p>
                         More information about the table data region can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
-                            target="_blank">documentation</a> section.
+                            target="_blank" rel="noreferrer">documentation</a> section.
                     </p>
                 </div>
             );

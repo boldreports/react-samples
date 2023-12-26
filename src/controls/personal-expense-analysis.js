@@ -9,7 +9,7 @@ class PersonalExpenseAnalysis extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/personal-expense-analysis.rdl'}
+                    reportPath={'personal-expense-analysis.rdl'}
                     toolbarSettings={Globals.TOOLBAR_OPTIONS}
                     toolBarItemClick={Globals.EDIT_REPORT}>
                 </BoldReportViewerComponent>)
@@ -27,16 +27,16 @@ class PersonalExpenseAnalysis extends Component {
                         <li>RDL External image embedding concept is used to display the image in report.</li>
                         <li>Text box report items with <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/compose-report/properties-panel/#set-expression"
-                            target="_blank">expressions</a> are used to format the currency data fields.</li>
+                            target="_blank" rel="noreferrer">expressions</a> are used to format the currency data fields.</li>
                         <li>Alternate row formatting is applied in the table data region using the <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/conditional-formatting-tablix-data-region/"
-                            target="_blank">Conditional Formatting</a> feature to alternate the background color for a table data
+                            target="_blank" rel="noreferrer">Conditional Formatting</a> feature to alternate the background color for a table data
                             region, which improves the readability of data.</li>
                     </ul>
                     <p>
                         More information about handling images, text boxes, chart, and table report items can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/"
-                            target="_blank">documentation</a> section.
+                            target="_blank" rel="noreferrer">documentation</a> section.
                     </p>
                 </div>
             );

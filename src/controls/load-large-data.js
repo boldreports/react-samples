@@ -9,7 +9,7 @@ class LoadLargeData extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/load-large-data.rdl'}
+                    reportPath={'load-large-data.rdl'}
                     toolbarSettings={{
                         showToolbar: true,
                         items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Export & ~ej.ReportViewer.ToolbarItems.Print,
@@ -45,12 +45,12 @@ class LoadLargeData extends Component {
                         <li>The table is displayed with a total row, and the sum of sales is calculated by aggregation of
                             <code> OrderQty</code> and <code>UnitPrice</code> data fields using the <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/compose-report/properties-panel/#set-expression"
-                                target="_blank">Expression</a> support.</li>
+                                target="_blank" rel="noreferrer">Expression</a> support.</li>
                         <li>The Item total data text box is formatted in Currency format to enhance the report design.</li>
                     </ul>
                     <p>
                         More information about Tablix can be found in this <a
-                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/" target="_blank">documentation </a>
+                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/" target="_blank" rel="noreferrer">documentation </a>
                         section.
                     </p>
                 </div>

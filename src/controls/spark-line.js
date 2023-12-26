@@ -9,7 +9,7 @@ class SparkLine extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/spark-line.rdlc'}
+                    reportPath={'spark-line.rdlc'}
                     reportLoaded={Globals.onReportLoaded}
                     processingMode={'Local'}
                     toolbarSettings={Globals.TOOLBAR_OPTIONS}
@@ -23,11 +23,11 @@ class SparkLine extends Component {
                         A sparkline is a small embedded line graph that illustrates a single trend. In this report, sales data are
                         interpreted to visualize the sales trends using <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/sparkline/"
-                            target="_blank">Spark Line</a> report items.
+                            target="_blank" rel="noreferrer">Spark Line</a> report items.
                     </p>
                     <p>
                         More information about RDLC report can be found in this <a
-                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank">documentation </a>
+                            href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/rdlc-report/" target="_blank" rel="noreferrer">documentation </a>
                         section.
                     </p>
                 </div>

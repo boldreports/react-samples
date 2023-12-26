@@ -18,7 +18,7 @@ class ExternalParameterReport extends Component {
                             <BoldReportViewerComponent
                                 id="report-viewer"
                                 reportServiceUrl={Globals.ServiceURL}
-                                reportPath={'~/Resources/demos/Report/product-line-sales.rdl'}
+                                reportPath={'product-line-sales.rdl'}
                                 toolbarSettings={{
                                     customGroups: window.Globals.TOOLBAR_OPTIONS.customGroups,
                                     toolbars: ej.ReportViewer.Toolbars.All & ~ej.ReportViewer.Toolbars.Vertical 
@@ -70,20 +70,20 @@ class ExternalParameterReport extends Component {
                 <div id="description">
                     <p>
                         The Product Line Sales RDL report represents the best performing sales people and stores using <a href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
-                            target="_blank">Tablix</a> and <a href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/" target="_blank">Chart </a>
+                            target="_blank" rel="noreferrer">Tablix</a> and <a href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/" target="_blank" rel="noreferrer">Chart </a>
                         report items.
                     </p>
                     <ul>
                         <li>
                             The sales details are organized by category and sub-category of products using the concept of external report parameters which is designed using <a href="https://ej2.syncfusion.com/javascript/documentation/api/drop-down-list"
-                                target="_blank">ejdropdownlist</a>. It allows users to filter Sub Category based on the selected Category.
+                                target="_blank" rel="noreferrer">ejdropdownlist</a>. It allows users to filter Sub Category based on the selected Category.
                         </li>
                         <li>Non cascading parameters namely start date and end date also used in this report.</li>
                     </ul>
                     <p>
                         More information about handling the report items can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/"
-                            target="_blank">documentation</a> section.
+                            target="_blank" rel="noreferrer">documentation</a> section.
                     </p>
                 </div>
             );
@@ -105,8 +105,8 @@ class ExternalParameterReport extends Component {
                 if (didMount) {
                     startDate = new ejs.calendars.DatePicker({ value: new Date("1/1/2003"), width: "180px" });
                     endDate = new ejs.calendars.DatePicker({ value: new Date("12/31/2003"), width: "180px" });
-                    var productCategoryList = JSON.parse(data.ProductCategoryDetail);
-                    var productSubCategoryList = JSON.parse(data.ProductSubCategoryDetail);
+                    var productCategoryList = JSON.parse(data.productCategoryDetail);
+                    var productSubCategoryList = JSON.parse(data.productSubCategoryDetail);
                     category = new ejs.dropdowns.DropDownList({
                         dataSource: productCategoryList,
                         fields: {

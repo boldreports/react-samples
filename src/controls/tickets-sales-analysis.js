@@ -9,7 +9,7 @@ class TicketsSalesAnalysis extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/tickets-sales-analysis.rdl'}
+                    reportPath={'tickets-sales-analysis.rdl'}
                     toolbarSettings={Globals.TOOLBAR_OPTIONS}
                     toolBarItemClick={Globals.EDIT_REPORT}>
                 </BoldReportViewerComponent>)
@@ -29,12 +29,12 @@ class TicketsSalesAnalysis extends Component {
                             <code> Top 5 Shows based on Tickets Sold</code>. More information on filtering data with chart data
                             region can be found in this <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/add-filters-to-chart-data-region/"
-                                target="_blank">documentation</a> section.</li>
+                                target="_blank" rel="noreferrer">documentation</a> section.</li>
                     </ul>
                     <p>
                         More information about chart data region can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/"
-                            target="_blank">documentation</a> section.
+                            target="_blank" rel="noreferrer">documentation</a> section.
                     </p>
                 </div>
             );

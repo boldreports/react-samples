@@ -9,7 +9,7 @@ class ProductLineSales extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/product-line-sales.rdl'}
+                    reportPath={'product-line-sales.rdl'}
                     toolbarSettings={Globals.TOOLBAR_OPTIONS}
                     toolBarItemClick={Globals.EDIT_REPORT}>
                 </BoldReportViewerComponent>)
@@ -20,9 +20,9 @@ class ProductLineSales extends Component {
                     <p>
                         The Product Line Sales RDL report represents the best performing sales people and stores using <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
-                            target="_blank">Tablix</a> and <a
+                            target="_blank" rel="noreferrer">Tablix</a> and <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/"
-                                target="_blank">Chart </a>
+                                target="_blank" rel="noreferrer">Chart </a>
                         report items.
                     </p>
                     <ul>
@@ -33,7 +33,7 @@ class ProductLineSales extends Component {
                     <p>
                         More information about Cascading Parameters can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-parameters/create-cascading-parameter/"
-                            target="_blank">documentation</a> section.
+                            target="_blank" rel="noreferrer">documentation</a> section.
                     </p>
                 </div>
             );

@@ -9,7 +9,7 @@ class SalesOrderDetail extends Component {
                 <BoldReportViewerComponent
                     id="report-viewer"
                     reportServiceUrl={Globals.ServiceURL}
-                    reportPath={'~/Resources/demos/Report/sales-order-detail.rdl'}
+                    reportPath={'sales-order-detail.rdl'}
                     toolbarSettings={Globals.TOOLBAR_OPTIONS}
                     toolBarItemClick={Globals.EDIT_REPORT}>
                 </BoldReportViewerComponent>)
@@ -20,20 +20,20 @@ class SalesOrderDetail extends Component {
                     <p>
                         Sales Order Details shows the sales invoice details using the <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-parameters/add/"
-                            target="_blank">report parameters</a>, line report item, and table formatting in Bold Reports Report Viewer.
+                            target="_blank" rel="noreferrer">report parameters</a>, line report item, and table formatting in Bold Reports Report Viewer.
                     </p>
                     <ul>
                         <li>The Sales Order details are displayed dynamically using <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/compose-report/properties-panel/#set-expression"
-                            target="_blank">expression</a> with the text box report item.</li>
+                            target="_blank" rel="noreferrer">expression</a> with the text box report item.</li>
                         <li>The sales order details for each sales order number can be generated based on <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-parameters/add/"
-                            target="_blank">Report Parameters</a> at run time.</li>
+                            target="_blank" rel="noreferrer">Report Parameters</a> at run time.</li>
                     </ul>
                     <p>
                         More information about handling the report items can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/"
-                            target="_blank">documentation</a> section.
+                            target="_blank" rel="noreferrer">documentation</a> section.
                     </p>
                 </div>
             );
