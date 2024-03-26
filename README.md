@@ -45,7 +45,7 @@ npm run start
 
 ## Online Demos
 
-Take a look at the Bold Reporting React live demo [here](https://demos.boldreports.com/home/react.html).
+Take a look at the Bold Reporting React live demo [here](https://demos.boldreports.com/home/react.html?utm_source=github&utm_medium=backlinks).
 
 ## Documentation
 
