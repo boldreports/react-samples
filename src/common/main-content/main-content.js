@@ -238,7 +238,7 @@ class MainContentSample extends Component {
                   Feedback
               </a>
               </div>
-              <div className="ej-lp-footer-copyright">Copyright © 2001-{{copyright}} Syncfusion Inc.</div>
+              <div className="ej-lp-footer-copyright">Copyright © 2001-2024 Syncfusion Inc.</div>
             </div>
           </div>
         </div>
