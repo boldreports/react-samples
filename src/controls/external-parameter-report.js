@@ -28,14 +28,15 @@ class ExternalParameterReport extends Component {
                         </ej-sample>
                     </div>
                     <div id="r-w-property-container">
-                        <div id="r-w-property-title">Parameters</div>
-                        <div id="r-w-property">
+                        <div id='spinner-container'></div>
+                        <div id="r-w-property-title" style={{display: "none"}}>Parameters</div>
+                        <div id="r-w-property-category" className="parameter-property" style={{display: "none"}}>
                             <div id="r-w-property-name"> Category</div>
                             <div id='r-w-property-value-category'>
                                 <input type="text" id="category" />
                             </div>
                         </div>
-                        <div id="r-w-property">
+                        <div id="r-w-property-subcategory" className="parameter-property" style={{display: "none"}}>
                             <div id="r-w-property-name">
                                 Sub Category
                             </div>
@@ -43,7 +44,7 @@ class ExternalParameterReport extends Component {
                                 <input type="text" id="subcategory" />
                             </div>
                         </div>
-                        <div id="r-w-property">
+                        <div id="r-w-property-startdate" className="parameter-property" style={{display: "none"}}>
                             <div id="r-w-property-name">
                                 Start Date
                             </div>
@@ -51,7 +52,7 @@ class ExternalParameterReport extends Component {
                                 <input id="startdate" />
                             </div>
                         </div>
-                        <div id="r-w-property">
+                        <div id="r-w-property-enddate" className="parameter-property" style={{display: "none"}}>
                             <div id="r-w-property-name">
                                 End Date
                             </div>
@@ -60,7 +61,7 @@ class ExternalParameterReport extends Component {
                             </div>
                         </div>
                         <input type="button" className="r-w-genearte e-control e-btn e-lib e-primary"
-                            id="update" onClick={this.loadReport} value="View Report" />
+                            id="update" onClick={this.loadReport} value="View Report" style={{display: "none"}} />
                     </div>
                 </div>
             )
@@ -90,6 +91,8 @@ class ExternalParameterReport extends Component {
         }
     }
     componentDidMount() {
+        ejs.popups.createSpinner({ target: document.getElementById("spinner-container") })
+        ejs.popups.showSpinner(document.getElementById("spinner-container"));
         var userAgent = window.navigator.userAgent;
         var isMobile = /mobile/i.test(userAgent);
         var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
@@ -146,6 +149,10 @@ class ExternalParameterReport extends Component {
                     category.appendTo('#category');
                     subCategory.appendTo('#subcategory');
                 }
+                ejs.popups.hideSpinner(document.getElementById("spinner-container"));
+                $("#r-w-property-title").css("display", "block");
+                $(".parameter-property").css("display", "inline-flex");
+                $(".r-w-genearte").css("display", "block");
                 didMount = false
             }
         });

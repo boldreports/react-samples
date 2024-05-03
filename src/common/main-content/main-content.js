@@ -124,8 +124,10 @@ class MainContentSample extends Component {
   render() {
     const componentName = this.props.report.sampleName.replace(/\s/g, '');
     const title = this.props.report.sampleName + ' | React Report Viewer';
-    document.title = (title.length < 45) ? title + ' | Bold Reports' : title;
+    const titleWithBoldReports = (title.length < 45) ? title + ' | Bold Reports' : title;
+    document.title = titleWithBoldReports;
     document.querySelector('meta[name="description"]').setAttribute('content', this.props.report.metaData.description);
+    document.querySelector('meta[property="og:title"]').setAttribute('content', titleWithBoldReports);
     return (
       <div>
         <Header isViewer="true" />
@@ -201,17 +203,17 @@ class MainContentSample extends Component {
             </div>
             {/* Banner section */}
             <div id="footer-banner">
-              <div id="ad-banner-head" className="ad-header">{bannerData.text}</div>
+              <div id="banner-head" className="header">{bannerData.text}</div>
               <div className="content-area" style={{ display: "flex", flexWrap: "wrap" }}>
-                <div className="ad-cnt-pt">
+                <div className="cnt-pt">
                   <span className="tick-mark"></span>
                   <div className="cnt-text cnt-text-1">{bannerData.features[0]}</div>
                 </div>
-                <div className="ad-cnt-pt">
+                <div className="cnt-pt">
                   <span className="tick-mark"></span>
                   <div className="cnt-text cnt-text-2">{bannerData.features[1]}</div>
                 </div>
-                <div className="ad-cnt-pt">
+                <div className="cnt-pt">
                   <span className="tick-mark"></span>
                   <div className="cnt-text cnt-text-3">{bannerData.features[2]}</div>
                 </div>
@@ -236,7 +238,7 @@ class MainContentSample extends Component {
                   Feedback
               </a>
               </div>
-              <div className="ej-lp-footer-copyright">Copyright © 2001-2023 Syncfusion Inc.</div>
+              <div className="ej-lp-footer-copyright">Copyright © 2001-{{copyright}} Syncfusion Inc.</div>
             </div>
           </div>
         </div>
@@ -280,8 +282,10 @@ class MainContentPreview extends Component {
   render() {
     const componentName = this.props.report.sampleName.replace(/\s/g, '');
     const title = this.props.report.sampleName + ' | Preview | React Report Viewer';
-    document.title = (title.length < 45) ? title + ' | Bold Reports' : title;
+    const titleWithBoldReports = (title.length < 45) ? title + ' | Bold Reports' : title;
+    document.title = titleWithBoldReports;
     document.querySelector('meta[name="description"]').setAttribute('content',  'The React Bold Report Viewer allows the end-users to visualize the ' + this.props.report.sampleName + ' report in browsers.');
+    document.querySelector('meta[property="og:title"]').setAttribute('content', titleWithBoldReports);
     return (
       <div>
         <Header isPreview="true"/>

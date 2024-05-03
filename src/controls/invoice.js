@@ -18,7 +18,7 @@ class Invoice extends Component {
             return (
                 <div id="description">
                     <p>
-                        In this demo, invoice report is generated based on <a
+                        In this demo, Invoice report is generated based on <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-parameters/add/"
                             target="_blank" rel="noreferrer">Report Parameters</a> at run time, and it displays the comprehensive overview of an invoice
                         that indicates the shipping order details using parameters, <a

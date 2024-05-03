@@ -83,6 +83,7 @@
   display: flex;
   position: fixed;
   z-index: 10000;
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
   justify-content: space-between;
 }
 
@@ -107,6 +108,8 @@
   font-size: 15px;
   opacity: 0.87;
   font-weight: 600;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .ej-sb-header .ej-sb-left-side .dropdown button.btn-secondary,

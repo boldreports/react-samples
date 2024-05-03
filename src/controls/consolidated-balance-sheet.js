@@ -20,7 +20,7 @@ class ConsolidatedBalanceSheet extends Component {
             return (
                 <div id="description">
                     <p>
-                        Consolidated balance sheet RDLC report represents the assets and liabilities of a company and all subsidiaries
+                        Consolidated Balance Sheet RDLC report represents the assets and liabilities of a company and all subsidiaries
                         for the last four quarters in a single sheet using <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
                             target="_blank" rel="noreferrer">Tablix</a> report item.
