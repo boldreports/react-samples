@@ -20,7 +20,7 @@ class SalesByYear extends Component {
             return (
                 <div id="description">
                     <p>
-                        The sales by year RDLC report represents the sales of North America countries in each year using <a
+                        The Sales By Year RDLC report represents the sales of North America countries in each year using <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
                             target="_blank" rel="noreferrer">Tablix</a> and <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/" target="_blank" rel="noreferrer">Chart </a>

@@ -20,7 +20,7 @@ class SalesOrderDetail extends Component {
                     <p>
                         Sales Order Details shows the sales invoice details using the <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-parameters/add/"
-                            target="_blank" rel="noreferrer">report parameters</a>, line report item, and table formatting in Bold Reports Report Viewer.
+                            target="_blank" rel="noreferrer">report parameters</a>, line report item, and table formatting in Bold Report Viewer.
                     </p>
                     <ul>
                         <li>The Sales Order details are displayed dynamically using <a

@@ -20,7 +20,7 @@ class PersonalExpenseAnalysis extends Component {
                     <p>
                         The monthly expense data of an individual is presented as a report using embedded images, text boxes, chart, and
                         table data regions
-                        in Bold Reports Report Viewer. Thereby, it makes the process of analyzing and tracking monthly spending patterns
+                        in Bold Report Viewer. Thereby, it makes the process of analyzing and tracking monthly spending patterns
                         easier.
                     </p>
                     <ul>

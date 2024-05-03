@@ -30,6 +30,8 @@ import DynamicColumns from './controls/dynamic-columns';
 import ExternalParameterReport from './controls/external-parameter-report';
 import ParameterCustomization from './controls/parameter-customization';
 import SubReport from './controls/sub-report';
+import PowerPointReport from './controls/powerpoint-report';
+import TranscriptReport from './controls/transcript-report';
 import rdlcData from './rdlcData'
 
 window.React = React;
@@ -55,6 +57,11 @@ var TOOLBAR_OPTIONS = {
         cssClass: "e-show"
     }]
 };
+
+var EXPORT_OPTIONS = {
+    exportOptions: ej.ReportViewer.ExportOptions.PPT
+}
+
 function EDIT_REPORT(args) {
     if (args.value === "edit-report") {
         var reportPath = location.href.lastIndexOf('external-parameter-report') !== -1 ? 
@@ -65,8 +72,8 @@ function EDIT_REPORT(args) {
     }
 }
 
-var ServiceURL = 'https://demos.boldreports.com/services/api/ReportViewerWebApi';
-var DesignerServiceURL = 'https://demos.boldreports.com/services/api/ReportDesignerWebApi';
+var ServiceURL = '/services/api/ReportViewerWebApi';
+var DesignerServiceURL = '/services/api/ReportDesignerWebApi';
 
 const SampleComponents = {
     ProductLineSales: ProductLineSales,
@@ -97,7 +104,9 @@ const SampleComponents = {
     DynamicColumns: DynamicColumns,
     ExternalParameterReport: ExternalParameterReport,
     ParameterCustomization: ParameterCustomization,
-    SubReport: SubReport
+    SubReport: SubReport,
+    PowerPointReport: PowerPointReport,
+    TranscriptReport: TranscriptReport
 }
 
 function onReportLoaded(args) {
@@ -117,6 +126,7 @@ function exportItemClick() {
 
 const Globals = {
     TOOLBAR_OPTIONS: TOOLBAR_OPTIONS,
+    EXPORT_OPTIONS: EXPORT_OPTIONS,
     EDIT_REPORT: EDIT_REPORT,
     ServiceURL: ServiceURL,
     DesignerServiceURL: DesignerServiceURL,
@@ -124,7 +134,6 @@ const Globals = {
     onReportLoaded: onReportLoaded,
     exportItemClick: exportItemClick,
     DESTROY_REPORT: global.DESTROY_REPORT,
-   
 }
 
 window.Globals = Globals;

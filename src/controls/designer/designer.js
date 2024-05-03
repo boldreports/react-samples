@@ -33,11 +33,33 @@ var reportItemExtensions = [{
 }];
 
 function DESIGNER_TOOLBAR_RENDERING(args) {
-  if ($(args.target).hasClass('e-rptdesigner-toolbarcontainer')) {
-    var saveButton = ej.buildTag('li.e-rptdesigner-toolbarli e-designer-toolbar-align e-tooltxt', '', {}, {});
-    var saveIcon = ej.buildTag('span.e-rptdesigner-toolbar-icon e-toolbarfonticonbasic e-rptdesigner-toolbar-save e-li-item', '', {}, { title: 'Save' });
-    args.target.find('ul:first').append(saveButton.append(saveIcon));
-
+  if (args?.target && $(args.target)?.hasClass('e-rptdesigner-toolbarcontainer')) {
+    if (args.action === 'beforeCreate') {
+      args.items.splice(0, 0, {
+        GroupName: 'customfileactionitems',
+        GroupId: 'designer_custom_fileaction_group',
+        Items: [
+          {
+              prefixIcon: 'b-toolbar-item e-rptdesigner-toolbar-icon e-toolbarfonticonbasic e-rptdesigner-toolbar-new',
+              tooltipText: 'New',
+              id: 'designer_custom_toolbar_btn_new',
+              htmlAttributes: {
+                id: 'designer_custom_toolbar_new',
+                'aria-label': 'New'
+              }
+            },
+          {
+            prefixIcon: 'b-toolbar-item e-toolbarfonticonbasic e-rptdesigner-toolbar-save',
+            tooltipText: 'Save',
+            id: 'designer_custom_toolbar_btn_save',
+            htmlAttributes: {
+              id: 'designer_custom_toolbar_save',
+              'aria-label': 'Save'
+            }
+          }
+        ]
+      });
+    }
   }
 }
 
@@ -94,6 +116,15 @@ class Designer extends Component {
         }
       });
     }
+    if (reportName == "powerpoint-report.rdl") {
+      designerInst.setModel({
+          previewOptions: {
+            exportSettings: {
+              exportOptions: ej.ReportViewer.ExportOptions.PPT
+            }
+          }
+      });
+    }
   }
   onAjaxBeforeLoad = (args) => {
     args.data = JSON.stringify({ reportType: this.props.reportType === 'rdlc' ? 'RDLC' : 'RDL' });
@@ -129,9 +160,12 @@ class Designer extends Component {
     return samples[currentIndex].sampleName;
   }
   render() {
+    var url = window.location.host;
     const title = (getReportName() ? this.findSampleName(getReportName().replace(/.rdl.*/g, '')) + " | " : '') + (this.props.reportType === 'rdlc' ? 'RDLC' : 'RDL') + ' Sample | React Report Designer';
-    document.title = (title.length < 45) ? title + ' | Bold Reports' : title;
+    const titleWithBoldReports = (title.length < 45) ? title + ' | Bold Reports' : title;
+    document.title = titleWithBoldReports;
     document.querySelector('meta[name="description"]').setAttribute('content', "The React Bold Report Designer allows the end-users to arrange/customize the reports appearance in browsers. It helps to edit the " + (getReportName() ? this.findSampleName(getReportName().replace(/.rdl.*/g, '')) : 'RDL Sample') + " for customer's application needs.");
+    document.querySelector('meta[property="og:title"]').setAttribute('content', titleWithBoldReports);
     return (
       <div>
         <Header />
@@ -145,11 +179,11 @@ class Designer extends Component {
             toolbarClick={DESIGNER_TOOLBAR_CLICK}
             reportOpened={this.props.reportType === 'rdlc' ? this.onReportOpened : ''}
             reportItemExtensions={reportItemExtensions}
-            permissionSettings={{
-              dataSource: ej.ReportDesigner.Permission.All & ~ej.ReportDesigner.Permission.Create
-            }}
+            permissionSettings={
+              (url.indexOf("demos.boldreports.com") !== -1 ? { dataSource: ej.ReportDesigner.Permission.All & ~ej.ReportDesigner.Permission.Create } : { dataSource: ej.ReportDesigner.Permission.All })
+            }
             toolbarSettings={{
-              items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.Save & ~ej.ReportDesigner.ToolbarItems.Open
+              items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.New & ~ej.ReportDesigner.ToolbarItems.Save & ~ej.ReportDesigner.ToolbarItems.Open
             }}
           >
           </BoldReportDesignerComponent>
