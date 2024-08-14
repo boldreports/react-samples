@@ -56,10 +56,13 @@
 }
 
 .ej-sidebar-content .ej-sb-toc .ej-sb-toc-card .ej-sb-toc-card-link{
+  width: inherit;
   text-decoration: none;
+  display: block;
 }
 
 .ej-sidebar-content .ej-sb-toc .ej-sb-toc-card .ej-sb-toc-title {
+  width: 146px;
   font-size: 12px;
   font-weight: 600;
   color: #2b3a5c;
