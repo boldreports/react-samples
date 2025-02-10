@@ -32,6 +32,8 @@ import ParameterCustomization from './controls/parameter-customization';
 import SubReport from './controls/sub-report';
 import PowerPointReport from './controls/powerpoint-report';
 import TranscriptReport from './controls/transcript-report';
+import CMRReport from './controls/cmr-report';
+import InfographicsReport from './controls/infographics-report';
 import rdlcData from './rdlcData'
 
 window.React = React;
@@ -106,7 +108,9 @@ const SampleComponents = {
     ParameterCustomization: ParameterCustomization,
     SubReport: SubReport,
     PowerPointReport: PowerPointReport,
-    TranscriptReport: TranscriptReport
+    TranscriptReport: TranscriptReport,
+    CMRReport: CMRReport,
+    InfographicsReport: InfographicsReport
 }
 
 function onReportLoaded(args) {

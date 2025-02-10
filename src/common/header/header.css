@@ -367,6 +367,10 @@ a:hover#home_page {
   text-decoration: none;
 }
 
+#home_page {
+  text-decoration: none;
+}
+
 .ej-platform-name {
   margin: 0 21px 0 25px;
   font-size: 15px;
