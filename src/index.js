@@ -12,10 +12,21 @@ import './controls/extensions/report-item-extensions/barcode.reportitem.css';
 import { EJBarcode } from './controls/extensions/report-item-extensions/barcode.reportitem';
 import { EJQRBarcode } from './controls/extensions/report-item-extensions/qrbarcode.reportitem';
 
+//signature
+import './controls/extensions/report-item-extensions/signature.reportitem.css';
+import './controls/extensions/report-item-extensions/signature.dialog.css';
+import { EJSignature } from './controls/extensions/report-item-extensions/signature.reportitem';
+import { SignatureDialog } from './controls/extensions/report-item-extensions/signature.dialog';
+
 let barcode = 'EJBarcode';
 let qrBarcode = 'EJQRBarcode';
 window[barcode] = EJBarcode;
 window[qrBarcode] = EJQRBarcode;
+
+let signature = 'EJSignature';
+let signatureDialog = 'SignatureDialog';
+window[signature] = EJSignature;
+window[signatureDialog] = SignatureDialog;
 
 //code-mirror
 import 'codemirror/lib/codemirror';

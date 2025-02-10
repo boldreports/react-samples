@@ -142,17 +142,17 @@ class MainContentSample extends Component {
                   <div id="parentTabContainer">
                     <ul className="nav ej-nav-header" id="parentTab" role="tablist">
                       <li className="ej-nav-item" onClick={this.DemoToggle}>
-                        <Link to={'#demo'} data-toggle="tab" role="tab" aria-selected="true" onClick={this.dontGoToLink} className={`${this.state.isDemoActive ? 'active' : ''}`}>
+                        <Link to={'#demo'} data-bs-toggle="tab" role="tab" aria-selected="true" onClick={this.dontGoToLink} className={`${this.state.isDemoActive ? 'active' : ''}`}>
                           <span className="ej-sb-icons ej-demo-icon"></span><span>DEMO</span>
                         </Link >
                       </li>
                       <li className="ej-nav-item source-tab" onClick={() => { this.SourceActive(); this.getSource(); }} >
-                        <Link to={'#source'} data-toggle="tab" role="tab" aria-selected="false" onClick={this.dontGoToLink} className={`${this.state.isSourceActive ? 'active' : ''}`}>
+                        <Link to={'#source'} data-bs-toggle="tab" role="tab" aria-selected="false" onClick={this.dontGoToLink} className={`${this.state.isSourceActive ? 'active' : ''}`}>
                           <span className="ej-sb-icons ej-source-icon"></span><span>SOURCE</span>
                         </Link>
                       </li>
                       {/*<li className="ej-nav-item desc-tab" onClick={this.DescActive}>
-                        <Link to={'#description'} data-toggle="tab" role="tab" aria-selected="false" onClick={this.dontGoToLink} className={`${this.state.isDescActive ? 'active' : ''}`} >
+                        <Link to={'#description'} data-bs-toggle="tab" role="tab" aria-selected="false" onClick={this.dontGoToLink} className={`${this.state.isDescActive ? 'active' : ''}`} >
                           <span className="ej-sb-icons ej-description-icon"></span><span>Description</span>
                         </Link>
     </li>*/}
@@ -179,10 +179,10 @@ class MainContentSample extends Component {
                           </div>
                           <ul className="nav ej-nav-header" id="childtTab" role="tablist">
                             <li className="ej-nav-item">
-                              <a className="active js-header " data-toggle="tab" role="tab" aria-selected="true">{this.props.report.routerPath + ".js"}</a>
+                              <a className="active js-header " data-bs-toggle="tab" role="tab" aria-selected="true">{this.props.report.routerPath + ".js"}</a>
                             </li>
                             {/* <li className="ej-nav-item">
-                          <a className="html-header" href="#html" data-toggle="tab" role="tab" aria-selected="false"></a>
+                          <a className="html-header" href="#html" data-bs-toggle="tab" role="tab" aria-selected="false"></a>
                         </li> */}
                           </ul>
                         </div>
@@ -231,14 +231,20 @@ class MainContentSample extends Component {
               <a href="https://www.boldreports.com/blog" target="_blank" rel="noreferrer">
                   Blog
               </a>
-              <a href="https://support.boldreports.com/" target="_blank" rel="noreferrer">
+              <a href="https://support.boldreports.com/support/tickets/create" target="_blank" rel="noreferrer">
                   Support
               </a>
               <a href="https://www.boldreports.com/feedback" target="_blank" rel="noreferrer">
                   Feedback
               </a>
+              <a href="https://support.boldreports.com/" target="_blank" rel="noreferrer">
+                Knowledge Base
+              </a>
+              <a href="https://www.boldreports.com/learn" target="_blank" rel="noreferrer">
+                Learning Center
+              </a>
               </div>
-              <div className="ej-lp-footer-copyright">Copyright © 2001-2024 Syncfusion Inc.</div>
+              <div className="ej-lp-footer-copyright">Copyright © 2001 - {data.copyrightYear} Syncfusion Inc.</div>
             </div>
           </div>
         </div>

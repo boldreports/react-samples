@@ -145,7 +145,7 @@ class ExternalParameterReport extends Component {
                         value: [2],
                         placeholder: "Select Option",
                         change: function(args) {
-                           $('#update').prop('disabled', !args.value.length);
+                            $('#update').prop('disabled', !args.value.length);
                         }
                     });
                     startDate.appendTo('#startdate');

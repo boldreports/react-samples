@@ -2,13 +2,15 @@ const gulp = require('gulp');
 var shelljs = require('shelljs');
 const fs = require('fs');
 
-const barcodeAssets = ['images', 'barcode.reportitem.css', 'barcode.reportitem.js', 'qrbarcode.reportitem.js'];
-const barCodeSrcDir = 'node_modules/@boldreports/javascript-reporting-extensions/';
-const barcodeDir = './src/controls/extensions/report-item-extensions/';
-const barcodeTeml = {
+const extensionsAssets = ['images', 'barcode.reportitem.css', 'barcode.reportitem.js', 'qrbarcode.reportitem.js', 'signature.reportitem.css','signature.dialog.css','signature.reportitem.js','signature.dialog.js'];
+const extensionsItemSrcDir = 'node_modules/@boldreports/javascript-reporting-extensions/';
+const extensionsItemDir = './src/controls/extensions/report-item-extensions/';
+const extensionsExportTemp = {
     '1D': 'export { EJBarcode };',
-    '2D': 'export { EJQRBarcode };'
-};
+    '2D': 'export { EJQRBarcode };',
+    'signature': 'export { EJSignature }',
+    'signatureDialog': 'export { SignatureDialog }'
+}
 
 gulp.task('copy-src-assets', function (done) {
     shelljs.mkdir(`${process.cwd()}/public/report-viewer`);
@@ -29,28 +31,35 @@ gulp.task('copy-dependent-scripts', function (done) {
     done();
 });
 
-gulp.task('copy-barcode-assets', (done) => {
+gulp.task('copy-extensions-assets', (done) => {
     shelljs.mkdir('-p',`${process.cwd()}/src/controls/extensions/report-item-extensions/`);
-    barcodeAssets.forEach(file => {
-        copyFile(`${process.cwd()}/${barCodeSrcDir + file}`, barcodeDir);
+    extensionsAssets.forEach(file => {
+        copyFile(`${process.cwd()}/${extensionsItemSrcDir + file}`, extensionsItemDir);
     })
     done();
 })
 
-gulp.task('update-barcode', (done) => {
-    if (fs.existsSync(`${barcodeDir}barcode.reportitem.js`) && fs.existsSync(`${barcodeDir}qrbarcode.reportitem.js`)) {
-        var barcode = fs.readFileSync(`${barcodeDir}barcode.reportitem.js`);
-        var qrbarcode = fs.readFileSync(`${barcodeDir}qrbarcode.reportitem.js`);
-        if (!barcode.includes(barcodeTeml['1D']))
-            fs.writeFileSync(`${barcodeDir}barcode.reportitem.js`, `${barcode} \n ${barcodeTeml['1D']}`);
-        if (!qrbarcode.includes(barcodeTeml['2D']))
-            fs.writeFileSync(`${barcodeDir}qrbarcode.reportitem.js`, `${qrbarcode} \n ${barcodeTeml['2D']}`);
-        done();
-    }
-    else {
-        console.log(`!!!... The Barcode files not found in ${barcodeDir} ...!!!`);
-        process.exit(1);
-    }
+gulp.task('update-extensions-export', (done) => {
+    const files = {
+        'barcode': ['barcode.reportitem.js', '1D'],
+        'qrbarcode': ['qrbarcode.reportitem.js', '2D'],
+        'signature': ['signature.reportitem.js', 'signature'],
+        'signatureDialog': ['signature.dialog.js', 'signatureDialog']
+    };
+    const updateFile = (key, [filename, exportKey]) => {
+        const filePath = `${extensionsItemDir}${filename}`;
+        if (fs.existsSync(filePath)) {
+            const content = fs.readFileSync(filePath, 'utf8');
+            if (!content.includes(extensionsExportTemp[exportKey])) {
+                fs.writeFileSync(filePath, `${content}\n${extensionsExportTemp[exportKey]}`);
+            }
+        } else {
+            console.log(`!!!... The ${key} file not found in ${extensionsItemDir} ...!!!`);
+            process.exit(1);
+        }
+    };
+    Object.entries(files).forEach(([key, value]) => updateFile(key, value));
+    done();
 });
 
 function copyFile(from , to){

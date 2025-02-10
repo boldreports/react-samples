@@ -1,26 +1,26 @@
 {
   "name": "react-sample-browser",
-  "version": "6.3.16",
+  "version": "7.1.9",
   "private": true,
   "dependencies": {
-    "@boldreports/react-reporting-components": "6.3.16",
-    "@boldreports/javascript-reporting-extensions": "6.3.16",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.3",
-    "bootstrap": "^4.6.0",
-    "create-react-class": "^15.7.0",
+    "@boldreports/react-reporting-components": "7.1.9",
+    "@boldreports/javascript-reporting-extensions": "7.1.9",
+    "@testing-library/jest-dom": "5.11.9",
+    "@testing-library/react": "11.2.5",
+    "@testing-library/user-event": "12.8.3",
+    "bootstrap": "5.3.3",
+    "create-react-class": "15.7.0",
     "axios": "1.7.7",
     "fs": "0.0.1-security",
     "gulp": "4.0.2",
-    "path": "^0.12.7",
-    "prismjs": "^1.23.0",
-    "require-dir": "^1.2.0",
+    "path": "0.12.7",
+    "prismjs": "1.29.0",
+    "require-dir": "1.2.0",
     "gulp4-run-sequence": "1.0.1",
     "codemirror": "5.58.2",
-    "shelljs": "^0.8.4",
-    "typo-js": "^1.2.0",
-    "web-vitals": "^1.1.1"
+    "shelljs": "0.8.5",
+    "typo-js": "1.2.0",
+    "web-vitals": "1.1.1"
   },
   "homepage": "./",
   "scripts": {
@@ -32,10 +32,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest",
-      "eslint:recommended",
-      "plugin:react/recommended"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -51,11 +48,18 @@
     ]
   },
   "devDependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "eslint": "^7.27.0",
-    "eslint-plugin-react": "^7.23.2"
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "5.0.1",
+    "eslint": "9.19.0",
+    "eslint-plugin-react": "7.37.4",
+    "@babel/core": "7.25.2",
+    "@babel/eslint-parser": "7.26.5",
+    "babel-core": "7.0.0-bridge.0"
+  },
+  "resolutions": {
+    "@babel/core": "7.x",
+    "babel-core": "7.0.0-bridge.0"
   }
 }
