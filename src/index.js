@@ -18,6 +18,10 @@ import './controls/extensions/report-item-extensions/signature.dialog.css';
 import { EJSignature } from './controls/extensions/report-item-extensions/signature.reportitem';
 import { SignatureDialog } from './controls/extensions/report-item-extensions/signature.dialog';
 
+//shape
+import './controls/extensions/report-item-extensions/shape.reportitem.css';
+import { EJShape} from './controls/extensions/report-item-extensions/shape.reportitem';
+
 let barcode = 'EJBarcode';
 let qrBarcode = 'EJQRBarcode';
 window[barcode] = EJBarcode;
@@ -27,6 +31,9 @@ let signature = 'EJSignature';
 let signatureDialog = 'SignatureDialog';
 window[signature] = EJSignature;
 window[signatureDialog] = SignatureDialog;
+
+let shape = 'EJShape';
+window[shape] = EJShape;
 
 //code-mirror
 import 'codemirror/lib/codemirror';

@@ -80,8 +80,8 @@ class Header extends Component {
                     <div className="ej-sb-left-side">
                         {this.props.isViewer ?
                             <div className="ej-sb-hamburger-icon ej-sb-icons" onClick={this.humbergerClick}></div> : ''}
-                        {this.props.isViewer ? <h1 className="ej-sb-platform-name">Bold Reports for React</h1> : <a id="home_page" href="/" target="_blank" rel="noreferrer">
-                            <h1 className="ej-platform-name">Bold Reports for React</h1>
+                        {this.props.isViewer ? <h1 className="ej-sb-platform-name">Bold Reports<sup>®</sup> for React</h1> : <a id="home_page" href="/" target="_blank" rel="noreferrer">
+                            <h1 className="ej-platform-name">Bold Reports<sup>®</sup> for React</h1>
                         </a>}
                         {this.props.isViewer ?
                             <div className={`dropdown show`} ref={this.dropdownContainer}>
@@ -97,7 +97,7 @@ class Header extends Component {
                         {/* We hided this element as per management instruction  */}
                         {/* <a className="ej-sb-button nav-link bold-schedule-demo" href="https://www.boldreports.com/schedule-free-demo" target="_blank" rel="noreferrer">Schedule Free Demo</a> */}
                         <a className="ej-sb-button nav-link product-detail" href={this.props.isViewer || this.props.isPreview ? 'https://www.boldreports.com/embedded-reporting/react-report-viewer' : 'https://www.boldreports.com/embedded-reporting/react-report-designer'} target="_blank" rel="noreferrer">Product Detail</a>
-                        <a className="ej-sb-button nav-link try-it-free" href="https://app.boldid.net/reporting/embedded/register?plan=194&evaluation=v2&leadsource=demos.boldreports.com&gclid=&referrerroriginurl=https://demos.boldreports.com/pricing&secondaryreferraloriginurl=https://demos.boldreports.com/&host=server&quantity=1" target="_blank" rel="noreferrer">Try it Free</a>
+                        <a className="ej-sb-button nav-link try-it-free" href="https://app.boldid.net/register/reports/enterprise?evaluation=v2&leadsource=demos.boldreports.com&gclid=&referrerroriginurl=https://demos.boldreports.com/pricing&secondaryreferraloriginurl=https://demos.boldreports.com/&host=server&quantity=1" target="_blank" rel="noreferrer">Try it Free</a>
                     </div>
                 </div>
             </ej-header>

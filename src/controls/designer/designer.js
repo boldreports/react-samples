@@ -41,6 +41,17 @@ var reportItemExtensions = [{
       description: 'This report item is used to add a graphic signature.',
       title: 'Signature'
   }
+}, {
+  name: 'Shape',
+  className: 'EJShape',
+  imageClass: 'customitem-shape',
+  displayName: 'Shape',
+  category: 'Shapes',
+  toolTip: {
+      requirements: 'Add a report item to the designer area',
+      description: 'Display the different types of shapes as report item',
+      title: 'Shapes'
+  }
 }];
 
 function DESIGNER_TOOLBAR_RENDERING(args) {
