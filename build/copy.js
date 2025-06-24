@@ -2,14 +2,17 @@ const gulp = require('gulp');
 var shelljs = require('shelljs');
 const fs = require('fs');
 
-const extensionsAssets = ['images', 'barcode.reportitem.css', 'barcode.reportitem.js', 'qrbarcode.reportitem.js', 'signature.reportitem.css','signature.dialog.css','signature.reportitem.js','signature.dialog.js'];
+const extensionsAssets = ['images', 'barcode.reportitem.css', 'barcode.reportitem.js', 'qrbarcode.reportitem.js', 'signature.reportitem.css','signature.dialog.css','signature.reportitem.js','signature.dialog.js','shape.reportitem.css','shape.reportitem.js','document.reportitem.css','pdfdocument.reportitem.js','htmldocument.reportitem.js'];
 const extensionsItemSrcDir = 'node_modules/@boldreports/javascript-reporting-extensions/';
 const extensionsItemDir = './src/controls/extensions/report-item-extensions/';
 const extensionsExportTemp = {
     '1D': 'export { EJBarcode };',
     '2D': 'export { EJQRBarcode };',
     'signature': 'export { EJSignature }',
-    'signatureDialog': 'export { SignatureDialog }'
+    'signatureDialog': 'export { SignatureDialog }',
+    'shape': 'export { EJShape }',
+    'pdfDocument': 'export { EJPdfDocument }',
+    'htmlDocument': 'export { EJHtmlDocument }',
 }
 
 gulp.task('copy-src-assets', function (done) {
@@ -44,7 +47,10 @@ gulp.task('update-extensions-export', (done) => {
         'barcode': ['barcode.reportitem.js', '1D'],
         'qrbarcode': ['qrbarcode.reportitem.js', '2D'],
         'signature': ['signature.reportitem.js', 'signature'],
-        'signatureDialog': ['signature.dialog.js', 'signatureDialog']
+        'signatureDialog': ['signature.dialog.js', 'signatureDialog'],
+        'shape': ['shape.reportitem.js', 'shape'],
+        'pdfDocument': ['pdfdocument.reportitem.js', 'pdfDocument'],
+        'htmlDocument': ['htmldocument.reportitem.js', 'htmlDocument'],
     };
     const updateFile = (key, [filename, exportKey]) => {
         const filePath = `${extensionsItemDir}${filename}`;

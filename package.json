@@ -1,10 +1,10 @@
 {
   "name": "react-sample-browser",
-  "version": "9.1.7",
+  "version": "10.1.11",
   "private": true,
   "dependencies": {
-    "@boldreports/react-reporting-components": "9.1.7",
-    "@boldreports/javascript-reporting-extensions": "9.1.7",
+    "@boldreports/react-reporting-components": "10.1.11",
+    "@boldreports/javascript-reporting-extensions": "10.1.11",
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/react": "11.2.5",
     "@testing-library/user-event": "12.8.3",

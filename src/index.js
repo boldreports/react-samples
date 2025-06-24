@@ -22,6 +22,11 @@ import { SignatureDialog } from './controls/extensions/report-item-extensions/si
 import './controls/extensions/report-item-extensions/shape.reportitem.css';
 import { EJShape} from './controls/extensions/report-item-extensions/shape.reportitem';
 
+//Document
+import './controls/extensions/report-item-extensions/document.reportitem.css';
+import { EJPdfDocument } from './controls/extensions/report-item-extensions/pdfdocument.reportitem';
+import { EJHtmlDocument } from './controls/extensions/report-item-extensions/htmldocument.reportitem';
+
 let barcode = 'EJBarcode';
 let qrBarcode = 'EJQRBarcode';
 window[barcode] = EJBarcode;
@@ -34,6 +39,11 @@ window[signatureDialog] = SignatureDialog;
 
 let shape = 'EJShape';
 window[shape] = EJShape;
+
+let pdfDocument = 'EJPdfDocument';
+let htmlDocument = 'EJHtmlDocument';
+window[pdfDocument] = EJPdfDocument;
+window[htmlDocument] = EJHtmlDocument;
 
 //code-mirror
 import 'codemirror/lib/codemirror';
