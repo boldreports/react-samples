@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
+import './styles/variable.css';
 
 //Reports react base
 import '@boldreports/react-reporting-components/Scripts/bold.reports.react.min';
