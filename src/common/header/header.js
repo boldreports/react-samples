@@ -82,30 +82,49 @@ class Header extends Component {
         }
     };
     render() {
+        const showFrameworkTabs = this.props.isViewer || this.props.isPreview || this.props.isDesigner;
+        const isDesignerHeader = this.props.isDesigner || (!this.props.isViewer && !this.props.isPreview);
         return (
             <ej-header>
-                <div className={`ej-sb-header ${this.props.isViewer ? '' : 'designer-header'}`}>
+                <div className={`ej-sb-header ${isDesignerHeader ? 'designer-header' : ''}`}>
                     <div className="ej-sb-left-side">
                         {this.props.isViewer ?
                             <div className="ej-sb-hamburger-icon ej-sb-icons" onClick={this.humbergerClick}></div> : ''}
-                        {this.props.isViewer ? <h1 className="ej-sb-platform-name">Bold Reports<sup>®</sup> for React</h1> : <a id="home_page" href="/" target="_blank" rel="noreferrer">
-                            <h1 className="ej-platform-name">Bold Reports<sup>®</sup> for React</h1>
-                        </a>}
-                        {this.props.isViewer ?
-                            <div className={`dropdown show`} ref={this.dropdownContainer}>
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onClick={this.handleButtonClick}>
-                                </button>
-                                {this.state.open && (<div className={`dropdown-menu show`} aria-labelledby="dropdownMenuButton">{Object.keys(otherPlatforms).map((name, index) => <a className={`dropdown-item ${name.includes('React') ? 'active' : ''}`} key={index} onClick={this.platformSwitcher.bind(this)}>{name}</a>)}</div>)}
-                            </div> :
-
+                        <a href="/" className="ej-sb-logo-link">
+                            <img src="https://cdn.boldreports.com/website/images/logo/bold-reports-logo.svg" alt="Bold Reports" className="ej-sb-logo" />
+                        </a>
+                        {showFrameworkTabs ?
+                            <React.Fragment>
+                                <div className="ej-sb-header-divider"></div>
+                                <h1 className='framework'>Frameworks</h1>
+                                <div className={`ej-sb-framework-tabs`} ref={this.dropdownContainer}>
+                                    {Object.keys(otherPlatforms).map((name, index) => {
+                                        const platformSlug = name === 'JavaScript' ? 'javascript'
+                                            : name === 'ASP.NET Core' ? ''
+                                            : name.toLowerCase();
+                                        const isLocal = !window.location.hostname.includes('boldreports.com');
+                                        const href = isLocal ? (platformSlug === '' ? '/' : `/${platformSlug}.html`) : (platformSlug === '' ? '/home/' : `/home/${platformSlug}.html`);
+                                        const isActive = name === data.platform;
+                                        return (
+                                            <a
+                                                key={index}
+                                                href={href}
+                                                className={`ej-sb-framework-tab ${isActive ? 'active' : ''}`}
+                                                onClick={isActive ? (e) => e.preventDefault() : undefined}
+                                            >
+                                                {name}
+                                            </a>
+                                        );
+                                    })}
+                                </div>
+                            </React.Fragment> :
                             ''}
                     </div>
                     <div className="ej-sb-right-side">
                         {/* We hided this element as per management instruction  */}
-                        {/* <a className="ej-sb-button nav-link bold-schedule-demo" href="https://www.boldreports.com/schedule-free-demo" target="_blank" rel="noreferrer">Schedule Free Demo</a> */}
-                        <a className="ej-sb-button nav-link product-detail" href={this.props.isViewer || this.props.isPreview ? 'https://www.boldreports.com/embedded-reporting/react-report-viewer' : 'https://www.boldreports.com/embedded-reporting/react-report-designer'} target="_blank" rel="noreferrer">Product Detail</a>
-                        <a className="ej-sb-button nav-link try-it-free" href={data.banner.freeTrialUrl} target="_blank" rel="noreferrer">Try it Free</a>
+                        {/* <a className="ej-sb-button nav-link bold-schedule-demo" href="https://www.boldreports.com/schedule-free-demo" target="_blank">Schedule Free Demo</a> */}
+                        <a className="ej-sb-button nav-link product-detail" href={this.props.isViewer || this.props.isPreview ? 'https://www.boldreports.com/embedded-reporting/react-report-viewer' : 'https://www.boldreports.com/embedded-reporting/react-report-designer'} target="_blank">Product Details</a>
+                        <a className="ej-sb-button nav-link try-it-free" href={data.banner.freeTrialUrl} target="_blank">Try it Free</a>
                     </div>
                 </div>
             </ej-header>

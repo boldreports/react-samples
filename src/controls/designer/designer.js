@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { React, Component } from 'react';
+import React, { Component } from 'react';
 import { Header } from './../../common/header/header';
 import rdlcData from '../../rdlcData';
 import data from '../../samples.json';
@@ -224,7 +224,7 @@ class Designer extends Component {
     document.querySelector('meta[property="og:title"]').setAttribute('content', titleWithBoldReports);
     return (
       <div>
-        <Header />
+        <Header isDesigner={true} />
         <div className='ej-preview-content'>
           <BoldReportDesignerComponent
             id="designer"
