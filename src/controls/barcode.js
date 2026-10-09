@@ -28,7 +28,7 @@ class Barcode extends Component {
                     <p>
                         More information about Barcode can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/barcode/"
-                            target="_blank" rel="noreferrer">documentation</a> section.
+                            target="_blank">documentation</a> section.
                     </p>
                 </div>
             );

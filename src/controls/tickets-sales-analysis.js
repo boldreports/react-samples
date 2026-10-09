@@ -29,12 +29,12 @@ class TicketsSalesAnalysis extends Component {
                             <code> Top 5 Shows based on Tickets Sold</code>. More information on filtering data with chart data
                             region can be found in this <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/add-filters-to-chart-data-region/"
-                                target="_blank" rel="noreferrer">documentation</a> section.</li>
+                                target="_blank">documentation</a> section.</li>
                     </ul>
                     <p>
                         More information about chart data region can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/"
-                            target="_blank" rel="noreferrer">documentation</a> section.
+                            target="_blank">documentation</a> section.
                     </p>
                 </div>
             );
