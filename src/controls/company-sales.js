@@ -30,13 +30,13 @@ class CompanySales extends Component {
                         <li>Sorting is applied to row groups to sort the product category and sub-category in descending and ascending
                             orders. More information about sorting data in matrix groups can be found in this <a
                                 href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/sort-data-in-tablix-data-region/#set-sort-expression-for-tablix-data-region"
-                                target="_blank" rel="noreferrer">documentation</a> section.
+                                target="_blank">documentation</a> section.
                         </li>
                     </ul>
                     <p>
                         Company Sales report designing steps can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/matrix/design-ssrs-matrix-report/#format-matrix-design"
-                            target="_blank" rel="noreferrer">documentation</a> section.
+                            target="_blank">documentation</a> section.
                     </p>
                 </div>
             );

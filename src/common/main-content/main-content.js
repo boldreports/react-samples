@@ -1,4 +1,4 @@
-import { React, Component } from 'react';
+import React, { Component } from 'react';
 import { Header } from './../header/header';
 import Sidebar from './../sidebar/sidebar';
 import { Link } from 'react-router-dom';
@@ -137,18 +137,18 @@ class MainContentSample extends Component {
             <div>
               <ej-maincontent>
                 <div className="ej-main-body-content">
-                  <h1 className="ej-title">{this.props.report.sampleName}</h1>
+                  <h1 className="ej-title">{this.props.report.sampleName} {this.props.report.category && <span className="ej-category-badge">{this.props.report.category}</span>}</h1>
                   <p className="ej-meta-description">{this.props.report.metaData.description}</p>
                   <div id="parentTabContainer">
                     <ul className="nav ej-nav-header" id="parentTab" role="tablist">
                       <li className="ej-nav-item" onClick={this.DemoToggle}>
                         <Link to={'#demo'} data-bs-toggle="tab" role="tab" aria-selected="true" onClick={this.dontGoToLink} className={`${this.state.isDemoActive ? 'active' : ''}`}>
-                          <span className="ej-sb-icons ej-demo-icon"></span><span>DEMO</span>
+                          <span className="ej-sb-icons ej-demo-icon"></span><span>Demo</span>
                         </Link >
                       </li>
                       <li className="ej-nav-item source-tab" onClick={() => { this.SourceActive(); this.getSource(); }} >
                         <Link to={'#source'} data-bs-toggle="tab" role="tab" aria-selected="false" onClick={this.dontGoToLink} className={`${this.state.isSourceActive ? 'active' : ''}`}>
-                          <span className="ej-sb-icons ej-source-icon"></span><span>SOURCE</span>
+                          <span className="ej-sb-icons ej-source-icon"></span><span>Source Code</span>
                         </Link>
                       </li>
                       {/*<li className="ej-nav-item desc-tab" onClick={this.DescActive}>
@@ -157,12 +157,14 @@ class MainContentSample extends Component {
                         </Link>
     </li>*/}
                       <li className="ej-nav ej-nav-item ej-sb-icons">
-                        <div className="new-tab ej-nav-sub-item">
-                          <div className="ej-nav-new ej-nav-sub-item" onClick={this.newWindow} title="Open in New Window" tabIndex="0"></div>
+                        <div className="new-tab-btn-container">
+                          <div className="ej-nav-prev ej-nav-sub-item" title="Previous Sample" onClick={this.navigateNextOrPrev.bind(this, this.props.report.sampleName, "previous")} tabIndex="0" ></div>
+                          <div className="ej-nav-next ej-nav-sub-item" title="Next Sample" tabIndex="0" onClick={this.navigateNextOrPrev.bind(this, this.props.report.sampleName, "next")}></div>
                         </div>
-                        <div className="ej-nav-prev ej-nav-sub-item" title="Previous Sample" onClick={this.navigateNextOrPrev.bind(this, this.props.report.sampleName, "previous")} tabIndex="0" >
+                        <div className="vertical-divider"></div>
+                        <div className="new-tab ej-nav-sub-item" onClick={this.newWindow} title="Open in New Window" tabIndex="0">
+                          <div className="ej-nav-new"></div>
                         </div>
-                        <div className="ej-nav-next ej-nav-sub-item" title="Next Sample" tabIndex="0" onClick={this.navigateNextOrPrev.bind(this, this.props.report.sampleName, "next")}></div>
                       </li>
                     </ul>
                     <div className="tab-content ej-tab-content" id="parentTabContent">
@@ -203,45 +205,50 @@ class MainContentSample extends Component {
             </div>
             {/* Banner section */}
             <div id="footer-banner">
-              <div id="banner-head" className="header">{bannerData.text}</div>
-              <div className="content-area" style={{ display: "flex", flexWrap: "wrap" }}>
-                <div className="cnt-pt">
-                  <span className="tick-mark"></span>
-                  <div className="cnt-text cnt-text-1">{bannerData.features[0]}</div>
-                </div>
-                <div className="cnt-pt">
-                  <span className="tick-mark"></span>
-                  <div className="cnt-text cnt-text-2">{bannerData.features[1]}</div>
-                </div>
-                <div className="cnt-pt">
-                  <span className="tick-mark"></span>
-                  <div className="cnt-text cnt-text-3">{bannerData.features[2]}</div>
-                </div>
+              <div className="banner-content">
+                <h2 className="banner-title">{bannerData.text}</h2>
+                <ul className="banner-features">
+                  <li className="banner-feature">
+                    <span className="banner-check">&#10003;</span>
+                    <span>{bannerData.features[0]}</span>
+                  </li>
+                  <li className="banner-feature">
+                    <span className="banner-check">&#10003;</span>
+                    <span>{bannerData.features[1]}</span>
+                  </li>
+                  <li className="banner-feature">
+                    <span className="banner-check">&#10003;</span>
+                    <span>{bannerData.features[2]}</span>
+                  </li>
+                </ul>
+                <a className="banner-cta" target="_blank" href={bannerData.freeTrialUrl} rel="noreferrer">
+                  Start Your Free Trial
+                </a>
               </div>
-              <a className="free-trial-url" target="_blank" rel="noreferrer" href={bannerData.freeTrialUrl}>
-                <div className="free-trial">TRY IT FOR FREE</div>
-              </a>
             </div>
             {/* Footer section */}
             <div className="ej-lp-footer">
               <div className="ej-lp-footer-links">
-              <a href="https://help.boldreports.com/embedded-reporting/react-reporting/" target="_blank" rel="noreferrer">
+              <a href="https://help.boldreports.com/embedded-reporting/react-reporting/" target="_blank">
                   Documentation
               </a>
-              <a href="https://www.boldreports.com/blog" target="_blank" rel="noreferrer">
+              <a href="https://www.boldreports.com/blog" target="_blank">
                   Blog
               </a>
-              <a href="https://support.boldreports.com/support/tickets/create" target="_blank" rel="noreferrer">
+              <a href="https://support.boldreports.com/support/tickets/create" target="_blank">
                   Support
               </a>
-              <a href="https://www.boldreports.com/feedback" target="_blank" rel="noreferrer">
+              <a href="https://www.boldreports.com/feedback" target="_blank">
                   Feedback
               </a>
-              <a href="https://support.boldreports.com/" target="_blank" rel="noreferrer">
+              <a href="https://support.boldreports.com/" target="_blank">
                 Knowledge Base
               </a>
-              <a href="https://www.boldreports.com/learn" target="_blank" rel="noreferrer">
+              <a href="https://www.boldreports.com/learn" target="_blank">
                 Learning Center
+              </a>
+              <a href="https://www.boldreports.com/free-tools/" target="_blank">
+                Free Tools
               </a>
               </div>
               <div className="ej-lp-footer-copyright">Copyright © 2001 - {data.copyrightYear} Syncfusion Inc.</div>

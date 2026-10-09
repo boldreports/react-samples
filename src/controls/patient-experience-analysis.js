@@ -20,8 +20,8 @@ class PatientExperienceAnalysis extends Component {
                     <p>
                         This report shows the Patient's satisfaction, average stay duration, count and average waiting time using <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
-                            target="_blank" rel="noreferrer">Tablix</a> and <a
-                                href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/" target="_blank" rel="noreferrer">Chart </a>
+                            target="_blank">Tablix</a> and <a
+                                href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/" target="_blank">Chart </a>
                         report items.
                     </p>
                     <p>
@@ -32,7 +32,7 @@ class PatientExperienceAnalysis extends Component {
                     <p>
                         More information about chart data region can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/"
-                            target="_blank" rel="noreferrer">documentation</a> section.
+                            target="_blank">documentation</a> section.
                     </p>
                 </div>
             );

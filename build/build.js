@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const runSequence = require('gulp4-run-sequence');
 var shelljs = require('shelljs');
+const fs = require("fs");
 
 gulp.task('pre-build', function (done) {
     runSequence('copy-extensions-assets', 'update-extensions-export', 'clean', 'copy-src-assets', done);

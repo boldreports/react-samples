@@ -63,7 +63,7 @@ class MultiLanguageReport extends Component {
                     </p>
                     <p>
                         For detailed guidance on implementing localization, refer to the <a href="https://help.boldreports.com/embedded-reporting/react-reporting/report-viewer/localization/"
-                                                                                                                                        target="_blank" rel="noreferrer">documentation</a>.
+                                                                                                                                        target="_blank">documentation</a>.
                     </p>
                 </div>
             );

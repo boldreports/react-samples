@@ -30,7 +30,7 @@ class DynamicColumns extends Component {
                     </ul>
                     <p>
                     More information about the Tablix data region can be found in this <a href="https://help.boldreports.com/enterprise-reporting/designer-guide/report-designer/report-items/tablix/"
-                                                                                  target="_blank" rel="noreferrer">documentation</a> section.
+                                                                                  target="_blank">documentation</a> section.
                     </p>
                 </div>
             );
