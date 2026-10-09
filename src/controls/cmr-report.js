@@ -26,7 +26,7 @@ class CMRReport extends Component {
                     <p>
                         More information about the image report item can be found in this <a
                             href="https://help.boldreports.com/enterprise-reporting/designer-guide/report-designer/report-items/tablix/"
-                            target="_blank" rel="noreferrer">documentation</a> section.
+                            target="_blank">documentation</a> section.
                     </p>
                 </div>
             );

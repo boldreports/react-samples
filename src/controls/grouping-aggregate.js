@@ -31,12 +31,12 @@ class GroupingAggregate extends Component {
                             Tablix data region.</li>
                         <li>The sales value for each quarter is formatted in the <code>Currency </code> <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/compose-report/format-data/"
-                            target="_blank" rel="noreferrer">format</a> to improve the readability of report.</li>
+                            target="_blank">format</a> to improve the readability of report.</li>
                     </ul>
                     <p>
                         More information about the Tablix data region can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/tablix/"
-                            target="_blank" rel="noreferrer">documentation</a> section.
+                            target="_blank">documentation</a> section.
                     </p>
                 </div>
             );

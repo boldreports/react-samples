@@ -22,7 +22,7 @@ class DynamicChartSeries extends Component {
                     </p>
                     <p>
                         More information about the Chart report item can be found in this <a href="https://help.boldreports.com/enterprise-reporting/designer-guide/report-designer/report-items/chart/"
-                            target="_blank" rel="noreferrer">documentation</a> section.
+                            target="_blank">documentation</a> section.
                     </p>
                 </div>
             );

@@ -28,7 +28,7 @@ class WebsiteVisitorAnalysis extends Component {
                     <p>
                         More information about chart data region can be found in this <a
                             href="https://help.boldreports.com/embedded-reporting/react-reporting/report-designer/designer-guide/report-items/chart/"
-                            target="_blank" rel="noreferrer">documentation</a> section.
+                            target="_blank">documentation</a> section.
                     </p>
                 </div>
             );
